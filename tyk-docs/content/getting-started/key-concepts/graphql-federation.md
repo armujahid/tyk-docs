@@ -12,7 +12,7 @@ weight: 110
 {{< toc >}}
 ### What is federation?
 
-Ease-of-use is an important factor when adopting GraphQL either on provider or on consumer side. Modern enterprises have dozens of backend services and need a way to provide a unified interface for querying them. Building a single, monolithic GraphQL service is not the best option. It leads to a lot of dependencies, over-complication and is hard to maintain.
+Ease-of-use is an important factor when adopting GraphQL either as a provider or a consumer. Modern enterprises have dozens of backend services and need a way to provide a unified interface for querying them. Building a single, monolithic GraphQL service is not the best option. It leads to a lot of dependencies, over-complication and is hard to maintain.
 
 To remedy this, Tyk, with release 4.0 offers GraphQL federation that allows you to divide GQL implementation across multiple back-end services, while still exposing them all as a single graph for the consumers.
 
