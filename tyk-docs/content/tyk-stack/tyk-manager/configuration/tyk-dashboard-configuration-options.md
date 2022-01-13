@@ -11,12 +11,16 @@ aliases:
     - /configure/tyk-dashboard-configuration-options/
 ---
 
+You can use environment variables to override the config file for the Tyk Dashboard. The Dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag. Environment variables are created from the dot notation versions of the JSON objects contained with the config files.
+To understand how the environment variables notation works, see [Environment Variables](/docs/tyk-configuration-reference/environment-variables/).
 
 The Tyk Dashboard has a separate configuration file, it is small and comes packaged with the tarball. It uses a separate configuration file as it may be installed on a different host to your Tyk Gateway nodes.
 
 The Dashboard configuration file can be found in the `tyk-dashboard` folder and by default is called `tyk_analytics.conf`, though it can be renamed and specified using the `--conf` flag.
 
 ### Environment Variables
+
+All the Dashboard environment variables have the prefix `TYK_DB_`. The environment variables will take precedence over the values in the configuration file.
 
 Environment variables (env var) can be used to override the settings defined in the configuration file. Where an environment variable is specified, its value will take precedence over the value in the configuration file.
 
@@ -209,4 +213,3 @@ The file will look like the sample below, the various fields are explained in th
 ```
 
 {{< include "dashboard-config.md" >}}
-
