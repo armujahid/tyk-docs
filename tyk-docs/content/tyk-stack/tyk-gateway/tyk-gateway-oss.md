@@ -13,7 +13,7 @@ aliases:
   - /concepts/tyk-components/gateway/
 ---
 
-## What is the Tyk Gateway?
+## What is the Tyk Gateway? 
 
 {{< include "tyk-gateway-features-include" >}}
 
