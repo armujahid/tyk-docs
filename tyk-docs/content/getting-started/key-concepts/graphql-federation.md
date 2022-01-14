@@ -16,7 +16,7 @@ Ease-of-use is an important factor when adopting GraphQL either as a provider or
 
 To remedy this, Tyk, with release 4.0 offers GraphQL federation that allows you to divide GQL implementation across multiple back-end services, while still exposing them all as a single graph for the consumers.
 
-**Insert diagram**
+{{< img src="/img/dashboard/graphql/diagram_graphql-federation-B.png" alt="GraphQL federation flowchart" >}}
 
 ### Subgraphs and supergraphs
 
