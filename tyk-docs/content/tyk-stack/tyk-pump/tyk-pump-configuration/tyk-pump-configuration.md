@@ -41,10 +41,10 @@ The Tyk Dashboard uses the `mongo-pump-aggregate` collection to display analytic
 
 Tyk Gateways can generate a lot of analytics data. Be sure to read about [capping your Dashboard analytics](/docs/analytics-and-reporting/capping-analytics-data-storage/)
 
-### Omitting configuration file
+### Omitting the configuration file
 
 From Tyk Pump 1.5.1+, you can configure an environment variable to omit the configuration file with the `TYK_PMP_OMITCONFIGFILE` variable.
-This is specially useful when using Docker, since by default, Tyk Pump have a default configuration file with pre-loaded pumps.
+This is specially useful when using Docker, since by default, the Tyk Pump has a default configuration file with pre-loaded pumps.
 
 ### Sharding analytics to different data sinks
 
