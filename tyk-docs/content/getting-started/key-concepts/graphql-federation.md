@@ -169,3 +169,23 @@ type User {
 4. Once you configure all the options click **Save**. The supergraph is now available in your list of APIs.
 
 {{< img src="/img/dashboard/graphql/supergraph-api-listing.png" alt="Supergraph API listing" >}}
+
+### Defining Global Headers
+
+In v4.0 you can define global (Supergraph) headers. Global headers are forwarded to all subgraphs that apply to the specific upstream request.
+
+#### Setting a Global Header
+
+1. After creating your supergraph, open the API in your Dashboard.
+2. From the **Subgraphs** tab click **Global Headers**.
+
+{{< img src="/img/dashboard/graphql/global-header1.png" alt="Global Header setup for a supergraph" >}}
+
+3. Enter your header name and value. You can add more headers by clicking **Add Headers**. 
+
+{{< img src="/img/dashboard/graphql/global-header2.png" alt="Add further Global headers in a supergraph" >}}
+
+4. Click **Update** to save the header.
+5. On the pop-up that is displayed, click **Update API**.
+6. If you want to delete a global header, click the appropriate bin icon for it.
+7. You can update your headers by repeating steps 2-5.
