@@ -132,13 +132,7 @@ gpg: Good signature from "Team Tyk (package signing) <team@tyk.io>" [ultimate]
 
 ## Configure Tyk Dashboard
 {{< tabs_start >}}
-{{< tab_start "Foo" >}}
-Text
-{{< tab_end >}}
-{{< tab_start "Foo2" >}}
-TExt
-{{< tab_end >}}
-{{< tabs_end >}}
+{{< tab_start "MongoDB" >}}
 ### Prerequisites
 
 You need to ensure the MongoDB and Redis services are running before proceeding.
@@ -174,6 +168,12 @@ What we have done here is:
 - `--tyk_node_hostname=http://localhost`: The Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
 - `--tyk_node_port=8080`: Tell the dashboard that the Tyk node it should communicate with is on port 8080.
 - `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
+{{< tab_end >}}
+{{< tabs_end >}}
+
 
 ### Step 1: Enter your Dashboard License
 
