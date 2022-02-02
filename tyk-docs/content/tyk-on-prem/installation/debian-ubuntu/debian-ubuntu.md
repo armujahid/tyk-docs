@@ -76,7 +76,7 @@ You can choose to not install Redis or MongoDB by removing the `-t redis` or `-t
 {{< note >}}
 **Requirements**
 
-Before installing the Tyk components in the order below, you need to first install Redis and MongoDB.
+Before installing the Tyk components in the order below, you need to first install Redis and MongoDB/SQL.
 {{< /note >}}
 
 ## Getting Started
@@ -95,8 +95,8 @@ You should follow the [online tutorial for installing MongoDb](https://docs.mong
 6. Check the `mongod` service is running
 
 #### Install SQL
+[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
 
-**SQL TEXT HERE**
 ### Install Redis
 
 ```bash
