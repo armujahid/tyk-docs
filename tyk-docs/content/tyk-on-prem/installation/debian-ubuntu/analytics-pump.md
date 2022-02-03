@@ -44,8 +44,19 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-pump`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-pump
+$ ansible-playbook playbook.yaml -t tyk-pump
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Ubuntu | 21 | ✅ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 ## Install Tyk Pump on Ubuntu

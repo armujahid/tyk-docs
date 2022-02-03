@@ -43,8 +43,18 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-pump`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-pump
+$ ansible-playbook playbook.yaml -t tyk-pump
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Amazon Linux | 2 | ✅ |
+| CentOS | 8 | ✅ |
+| CentOS | 7 | ✅ |
+| RHEL | 8 | ✅ |
+| RHEL | 7 | ✅ |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 ## Install Tyk Pump on Red Hat (RHEL) / CentOS

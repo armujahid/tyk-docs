@@ -44,8 +44,32 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-dashboard`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-dashboard
+$ ansible-playbook playbook.yaml -t tyk-dashboard
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Ubuntu | 21 | ✅ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+
+## Variables
+- `vars/tyk.yaml`
+
+| Variable | Default | Comments |
+| --------- | :---------: | --------- |
+| secrets.APISecret | `352d20ee67be67f6340b4c0605b044b7` | API secret |
+| secrets.AdminSecret | `12345` | Admin secret |
+| dash.license | | Dashboard license|
+| dash.service.host | | Dashboard server host if different than the hosts url |
+| dash.service.port | `3000` | Dashboard server listening port |
+| dash.service.proto | `http` | Dashboard server protocol |
+| dash.service.tls | `false` | Set to `true` to enable SSL connections |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 ## <a name="install-tyk-dashboard-ubuntu"></a>Install Tyk Dashboard on Ubuntu
