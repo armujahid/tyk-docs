@@ -109,13 +109,20 @@ If you don't complete this step, you won't see any analytics in your Dashboard, 
 {{< note success >}}
 **Note**  
 
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
+
 You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
 {{< /note >}}
 
-**ADD SQL**
-
 ```bash
 sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics
+
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
+{{< tab_end >}}
+{{< tabs_end >}}
 ```
 ### Step 4: Start Tyk Pump
 ```bash

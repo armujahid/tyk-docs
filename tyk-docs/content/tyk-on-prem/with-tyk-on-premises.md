@@ -45,7 +45,9 @@ By default the Tyk Dashboard uses MongoDB. You can use the following as a drop-i
 * [DocumentDB](https://aws.amazon.com/documentdb/)
 * [Azure Cosmos DB version 3.2](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-feature-support)
 * MongoDB 3.x and 4.0.x
-* From v4.0, we now also support the following [SQL Platforms] **Add link**
+* From v4.0, we have added SQL support. In a production environment, we support the following PostgreSQL versions:
+
+13.3, 12.7, 11.12, 10.17, 9.6.22
 
 {{< note success >}}
 **Note**  

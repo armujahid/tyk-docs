@@ -51,7 +51,7 @@ $ sh scripts/init.sh
 $ ansible-playbook playbook.yml -t tyk-pro -t redis -t mongodb (**ADD SQL HERE**)
 ```
 
-You can choose to not install Redis, MongoDB or SQL by removing the `-t redis` or `-t mongodb` (**ADD SQL HERE**)respectively. However Redis, MongoDB or SQL are a requirment and need to be installed for the Tyk Pro to run.
+You can choose to not install Redis, MongoDB or SQL by removing the `-t redis` or `-t mongodb` (**ADD SQL HERE**)respectively. However Redis, MongoDB or SQL are a requirement and need to be installed for the Tyk Pro installation to run.
 
 ## Supported Distributions
 | Distribution | Version | Supported |

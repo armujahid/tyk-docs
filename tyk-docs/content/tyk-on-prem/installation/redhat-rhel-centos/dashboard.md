@@ -95,8 +95,8 @@ sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
 ```
 ### Step 3: Configure MongoDB v4.0 or SQL
-
-#### MongoDB v4.0
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
 
 Create a `/etc/yum.repos.d/mongodb-org-4.0.repo` file so that you can install MongoDB directly, using yum.
 ```bash
@@ -112,16 +112,19 @@ Finally we'll need to update our local cache, so run:
 ```bash
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 ```
-
-#### Configure SQL
-
-**SQL TEXT HERE**
 ### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```bash
 sudo yum install -y mongodb-org tyk-dashboard redis
 ```
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
+{{< tab_end >}}
+{{< tabs_end >}}
+### Step 4: Install Packages
+
 
 **(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)**
 

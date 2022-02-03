@@ -53,11 +53,8 @@ $ sh scripts/init.sh
 ```bash
 $ ansible-playbook playbook.yml -t tyk-pro -t redis -t mongodb
 ```
-**ADD SQL**
 
 You can choose to not install Redis or MongoDB by removing the `-t redis` or `-t mongodb` respectively. However Redis and MongoDB/SQL are a requirement and need to be installed for the Tyk Pro installation to run.
-
-**ADD SQL**
 
 ## Supported Distributions
 | Distribution | Version | Supported |
@@ -81,8 +78,8 @@ Before installing the Tyk components in the order below, you need to first insta
 
 ## Getting Started
 
-### Install MongoDB or SQL
-
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
 #### Install MongoDB 4.0
 
 You should follow the [online tutorial for installing MongoDb](https://docs.mongodb.com/v4.0/tutorial/install-mongodb-on-ubuntu/). We will be using version 4.0. As part of the Mongo installation you need to perform the following:
@@ -94,8 +91,12 @@ You should follow the [online tutorial for installing MongoDb](https://docs.mong
 5. Start MongoDB
 6. Check the `mongod` service is running
 
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
 #### Install SQL
-[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
+See [SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}}) for details on installing SQL in a production environment.
+{{< tab_end >}}
+{{< tabs_end >}}
 
 ### Install Redis
 
