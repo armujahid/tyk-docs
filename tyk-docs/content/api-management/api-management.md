@@ -11,6 +11,8 @@ aliases:
     - /getting-started/deployment-options/
 ---
 
+What is API Management? API management solution helps you ensure the creation and publishing of your API is consistent and secure. It also monitors performance and activity through analytics and logging. It finally manages all your transformations and policies centrally.
+
 The API Management deployment options are comprised of the various [open and closed source](/docs/tyk-stack/) components.
 
 Which one is right for your organization depends on your requirements and preferences.  Please [contact us](https://tyk.io/about/contact/) for help.
@@ -30,7 +32,7 @@ Which one is right for your organization depends on your requirements and prefer
 | [Developer API Analytics][10]  | -		      |✅	              |✅	   
 | Hybrid Deployments                       | -		      |-	              |✅
 | Fully-Managed SaaS       | -		      |-	              |✅
-| HIPAA, SOC2, PCI          | ✅		      |✅	              | -	
+| HIPAA, SOC2, PCI          | ✅		      |✅	              | -
 
 Please [contact us](https://tyk.io/about/contact/) for help.
 
@@ -55,7 +57,7 @@ Please [contact us](https://tyk.io/about/contact/) for help.
 ### Open Source (OSS)
 The Tyk Gateway is the backbone of all our solutions.  You can deploy it for free, forever.
 
-Head on over to the [OSS section][11] for more information on it and the other open source components. 
+Head on over to the [OSS section][11] for more information on it and the other open source components.
 ### Self-managed (On-Prem)
 
 {{< include "self-managed-licensing-include" >}}

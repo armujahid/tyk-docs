@@ -4,13 +4,16 @@ date: 2020-06-24
 tags: ["Tyk Stack", "Tyk Cloud", "SaaS"]
 description: "The Tyk Cloud SaaS solution for API management"
 weight: 10
-menu: 
+menu:
     main:
         parent: "API Management"
 url: /tyk-cloud/
 ---
 
 The new Tyk Cloud platform allows you to quickly setup the full Tyk Enterprise API Management platform by simply choosing the regions where you want to locate your Tyk Gateways and where you wish your data to reside.
+
+You can sign up for a free trial to test it out [free trial](https://tyk.io/sign-up/).
+
 
 [Find out more](/docs/tyk-cloud/what-is-tyk-cloud/)
 
@@ -19,7 +22,7 @@ The new Tyk Cloud platform allows you to quickly setup the full Tyk Enterprise A
 {{< grid >}}
 
 {{< badge read="15 mins" href="/docs/tyk-cloud/getting-started/" image="/docs/img/tyk-cloud.svg">}}
-Configure Tyk Cloud 
+Configure Tyk Cloud
 {{< /badge >}}
 
 {{< /grid >}}
