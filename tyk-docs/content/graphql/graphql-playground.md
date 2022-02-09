@@ -33,12 +33,6 @@ The GraphiQL try-out playground comes with a series of features by default, whic
 
   You can also [forward headers](/docs/universal-data-graph/udg-getting-started/header-forwarding/) from your client request to the upstream data sources.
 
-  **Headers for Subscription**
-  
-  In order to test protected subscription API with the playground, please allow query params from the core authentication settings.
-
-  ![Allow query params](/docs/img/dashboard/graphql/query_params.png)
-
 
   **Logs**
 
