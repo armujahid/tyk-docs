@@ -5,7 +5,7 @@ weight: 200
 menu:
   main:
     parent: "Tyk Dashboard"
-weight: 1
+weight: 3
 url: "/tyk-dashboard-api"
 ---
 

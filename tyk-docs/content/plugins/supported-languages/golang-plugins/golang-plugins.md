@@ -654,13 +654,13 @@ When Tyk passes a request to your plugin, the API definition is made available a
 ```{.copyWrapper}
 package main
 import (
-	"fmt"
-	"net/http"
-	"github.com/TykTechnologies/tyk/ctx"
+  "fmt"
+  "net/http"
+  "github.com/TykTechnologies/tyk/ctx"
 )
 func main() {}
 func MyPluginFunction(w http.ResponseWriter, r *http.Request) {
-	apidef := ctx.GetDefinition(r)
+  apidef := ctx.GetDefinition(r)
   fmt.Println("API name is", apidef.Name)
 }
 ```
@@ -673,9 +673,9 @@ When Tyk passes a request to your plugin, the User Sesssion object is made avail
 ```{.copyWrapper}
 package main
 import (
-	"fmt"
-	"net/http"
-	"github.com/TykTechnologies/tyk/ctx"
+  "fmt"
+  "net/http"
+  "github.com/TykTechnologies/tyk/ctx"
 )
 func main() {}
 func MyPluginFunction(w http.ResponseWriter, r *http.Request) {

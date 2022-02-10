@@ -113,11 +113,14 @@ Redis - required for all the Tyk installations and must be installed in the clus
         reachable from inside K8s. You can find instructions for a simple Redis installation bellow.
 
 ### Installation
-This is *Tyk*'s official Helm repository `https://helm.tyk.io/public/helm/charts/`.
-You can also find the *Tyk Hybrid* Helm chart in [artifacthub](https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid).
 
-If you are interested in contributing, suggesting changes or creating PRs, please use our
-[GitHub repo](https://github.com/TykTechnologies/tyk-helm-chart/tree/master/tyk-hybrid).
+This is Tyk's official Helm Charts repository `https://helm.tyk.io/public/helm/charts/`.
+*Tyk Hybrid* Helm Chart is under the name `tyk-helm/tyk-hybrid`
+You can also find it in [ArtifactHub](https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid).
+<div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid" data-theme="light" data-header="true" data-responsive="true"><blockquote><p lang="en" dir="ltr"><b>tyk-hybrid</b>: This chart deploys the open source Tyk Gateway with an Hybrid setup that connects to a management control plane. Tyk is a fully open source Enterprise API Gateway, supporting REST, GraphQL, TCP and gRPC protocols. Tyk Gateway is provided ‘Batteries-included’, with no feature lockout. It enables organisations and businesses around the world to protect, secure, and process APIs and well as review and audit the consumed apis.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
+
+If you are interested in contributing to our charts, suggesting changes, creating PRs or any other way, 
+please use [GitHub Tyk-helm-chart repo](https://github.com/TykTechnologies/tyk-helm-chart/tree/master/tyk-hybrid) 
 
 #### Add Tyk official Helm repo
 ```bash

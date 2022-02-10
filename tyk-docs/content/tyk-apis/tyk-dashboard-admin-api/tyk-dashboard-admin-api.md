@@ -4,7 +4,7 @@ title: Tyk Dashboard Admin API
 menu:
   main:
     parent: "Tyk Dashboard"
-weight: 2
+weight: 4
 url: "/dashboard-admin-api"
 ---
 

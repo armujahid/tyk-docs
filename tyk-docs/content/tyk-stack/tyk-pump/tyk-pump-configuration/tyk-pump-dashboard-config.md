@@ -10,6 +10,7 @@ aliases:
   - /tyk-configuration-reference/tyk-pump-dashboard-config/
 ---
 
+
 {{< tabs_start >}}
 {{< tab_start "MongoDB" >}}
 
@@ -23,9 +24,11 @@ Following these steps will give us analytics in the following Dashboard location
 
 There are 3 steps you need to do.  
 
+
 1.  Set `enable_analytics` to true in your `tyk.conf`.
 2.  Set `use_sharded_analytics` to true in `tyk_analytics.conf`.
 3.  Use the following in your `pump.conf`:
+
 
 ```{.json}
 {
@@ -228,6 +231,84 @@ This collection [should be capped](/docs/analytics-and-reporting/capping-analyti
   }
 }
 ```
+
+## SQL
+
+When using one of our [supported SQL platforms]({{< ref "/content/tyk-stack/tyk-manager/database-options.md#introduction" >}}), you can configure your analytics in the following ways:
+
+* Sharding **raw logs**
+* Sharding **aggregated analytics**
+* Sharding **uptime tests**
+
+### Configuring a Tyk SQL Pump
+
+```
+"sql": {
+  "name": "sql",
+  "meta": {
+    "type": "postgres",
+    "connection_string": "host=localhost port=5432 user=admin dbname=postgres_test password=test",
+    "table_sharding": false
+  }
+}
+```
+`type` - The supported types are `sqlite` and `postgres`. 
+
+`connection_string` - Specifies the connection string to the database. For example, for `sqlite` it will be the path/name of the database, and for `postgres`, specifying the host, port, user, password, and dbname.
+
+`log_level` - Specifies the SQL log verbosity. The possible values are: `info`,`error` and `warning`. By default, the value is `silent`, which means that it won't log any SQL query.
+
+`table_sharding` - Specifies if all the analytics records are going to be stored in one table or in multiple tables (one per day). By default, it is set to `false`.
+
+If `table_sharding` is `false`, all the records are going to be stored in the `tyk_analytics` table. If set to `true`, daily records are stored in a `tyk_analytics_YYYYMMDD` date formatted table.
+
+### Configuring a Tyk SQL aggregate pump
+
+```
+"sql_aggregate": {
+  "name": "sql_aggregate",
+  "meta": {
+    "type": "postgres",
+    "connection_string": "host=localhost port=5432 user=admin dbname=postgres_test password=test",
+    "table_sharding": true
+  }
+}
+```
+
+`type` - The supported types are `sqlite` and `postgres`. 
+
+`connection_string` - Specifies the connection string to the database. For example, for `sqlite` it will be the path/name of the database, and for `postgres`, specifying the host, port, user, password, and dbname.
+
+`log_level` - Specifies the SQL log verbosity. The possible values are: `info`, `error`, and `warning`. By default, the value is `silent`, which means that it won't log any SQL query.
+
+`track_all_paths` - Specifies if it should store aggregated data for all the endpoints. By default, it is set to `false`, which means that it only stores aggregated data for `tracked endpoints`. 
+
+`ignore_tag_prefix_list` - Specifies prefixes of tags that should be ignored.
+
+`table_sharding` - Specifies if all the analytics records are going to be stored in one table or in multiple tables (one per day). By default, it is set to `false`.
+
+If `table_sharding` is `false`, all the records are going to be stored in the `tyk_analytics` table. If set to `true`, daily records are stored in a `tyk_analytics_YYYYMMDD` date formatted table.
+
+### Configuring a Tyk SQL uptime pump
+
+In an `uptime_pump_config` section, you can configure a SQL uptime pump. To do that, you need to add the field `uptime_type` with `sql` value.
+
+```
+"uptime_pump_config": {
+  "uptime_type": "sql",
+  "type": "postgres",
+  "connection_string": "host=sql_host port=sql_port user=sql_usr dbname=dbname password=sql_pw",
+  "table_sharding": false
+},
+```
+`type` - The supported types are `sqlite` and `postgres`.
+
+`connection_string` - Specifies the connection string to the database. For example, for `sqlite` it will be the path/name of the database, and for `postgres`, specifying the host, port, user, password, and dbname.
+
+`table_sharding` - Specifies if all the analytics records are going to be stored in one table or in multiple tables (one per day). By default, it is set to `false`.
+
+If `table_sharding` is `false`, all the records are going to be stored in the `tyk_analytics` table. If set to `true`, daily records are stored in a `tyk_analytics_YYYYMMDD` date formatted table.
+
 
 ### Dashboard setting
 

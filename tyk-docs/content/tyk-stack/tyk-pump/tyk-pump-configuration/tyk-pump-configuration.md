@@ -105,6 +105,11 @@ The pump needed for storing logs data in the database, is very similar to other 
 
 Tyk Gateways can generate a lot of analytics data. Be sure to read about [capping your Dashboard analytics](/docs/analytics-and-reporting/capping-analytics-data-storage/)
 
+### Omitting the configuration file
+
+From Tyk Pump 1.5.1+, you can configure an environment variable to omit the configuration file with the `TYK_PMP_OMITCONFIGFILE` variable.
+This is specially useful when using Docker, since by default, the Tyk Pump has a default configuration file with pre-loaded pumps.
+
 ### Sharding analytics to different data sinks
 
 In a multi-organisation deployment, each organisation, team, or environment might have their preferred analytics tooling. This capability allows the Tyk Pump to send analytics for different organisations or various APIs to different destinations. 
