@@ -12,8 +12,7 @@ url: "/apim/open-source"
 
 
 
-Tyk offers many open source products which integrate with the Gateway. It is an open source Enterprise API Gateway supporting REST, GraphQL, TCP and gRPC protocols.
-You can use as many or as few as you need to solve your API problems.
+Open source is at the heart of what we do. Anything that is API Gateway-related, lives in the Gateway, or is critical for the Gateway to work is open and freely available via our [Github](https://github.com/TykTechnologies/). That includes our powerful new GraphQL server.
 
 Our commitment to open source also delivers a host of benefits for our users: signup for free with Tyk, receive securely packaged open source packages, getting started guides, access to our community and all of the latest open source information.
 
