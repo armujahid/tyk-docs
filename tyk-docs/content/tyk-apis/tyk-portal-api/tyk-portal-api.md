@@ -3,7 +3,7 @@ title: Tyk Portal API
 weight: 190
 menu:
   main:
-    parent: "Built in Developer Portal"
+    parent: "Tyk Portal Classic"
 weight: 8
 url: /tyk-portal-api
 ---
