@@ -3,7 +3,7 @@ date: 2017-03-24T17:42:45Z
 title: Portal OAuth Clients
 menu:
   main:
-    parent: "Tyk Developer Portal"
+    parent: "Tyk Portal Classic"
 weight: 10 
 aliases:
     - /tyk-developer-portal/portal-oauth-clients/

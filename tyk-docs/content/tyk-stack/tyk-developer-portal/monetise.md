@@ -3,7 +3,7 @@ date: 2017-03-24T17:45:29Z
 title: Monetise
 menu:
   main:
-    parent: "Tyk Developer Portal"
+    parent: "Tyk Portal Classic"
 weight: 11 
 url: /tyk-developer-portal/monetise/
 ---

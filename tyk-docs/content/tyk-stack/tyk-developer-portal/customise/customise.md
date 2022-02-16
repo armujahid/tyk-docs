@@ -4,9 +4,9 @@ title: Portal Customisation Overview
 linktitle: Customise
 menu:
   main:
-    parent: "Tyk Developer Portal"
+    parent: "Tyk Portal Classic"
 weight: 12
-url: "/tyk-developer-portal/customise"
+url: /tyk-developer-portal/customise
 ---
 
 ### Customise look and feel

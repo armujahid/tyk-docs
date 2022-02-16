@@ -3,7 +3,7 @@ date: 2017-03-24T17:42:45Z
 title: Portal events and notifications
 menu:
   main:
-    parent: "Tyk Developer Portal"
+    parent: "Tyk Portal Classic"
 weight: 9 
 url: /tyk-developer-portal/portal-events-notifications/
 ---

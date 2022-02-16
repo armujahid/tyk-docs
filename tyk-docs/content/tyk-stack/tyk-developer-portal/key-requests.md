@@ -3,7 +3,7 @@ date: 2017-03-24T17:10:33Z
 title: Key Requests
 menu:
   main:
-    parent: "Tyk Developer Portal"
+    parent: "Tyk Portal Classic"
 aliases:
   - /tyk-developer-portal/key-requests
 ---

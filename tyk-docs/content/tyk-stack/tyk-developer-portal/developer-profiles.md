@@ -3,7 +3,7 @@ date: 2017-03-24T17:33:13Z
 title: Developer Profiles
 menu:
   main:
-    parent: "Tyk Developer Portal"
+    parent: "Tyk Portal Classic"
 weight: 2 
 url: /tyk-developer-portal/developer-profiles
 ---
