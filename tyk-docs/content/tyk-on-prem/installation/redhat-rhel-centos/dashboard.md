@@ -143,7 +143,17 @@ sudo yum install -y mongodb-org tyk-dashboard redis
 ```
 {{< tab_end >}}
 {{< tab_start "SQL" >}}
-[SQL configuration]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md" >}})
+
+We recommend installing MongoDB and then using our new [SQL migration tool]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md#migrating-from-an-existing-mongodb-instance" >}}).
+
+{{< note success >}}
+**Note**  
+
+The migration tool will not migrate any Logs, Analytics or Uptime analytics data.
+{{< /note >}}
+
+See [Database options]({{< ref "/content/tyk-stack/tyk-manager/database-options.md" >}}) for our supported SQL platforms.
+
 {{< tab_end >}}
 {{< tabs_end >}}
 ### Step 4: Install Packages
