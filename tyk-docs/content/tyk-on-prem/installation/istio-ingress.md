@@ -27,7 +27,7 @@ Istioctl command line tool on your machine.
 
 ### Setup Istio
 
-Install istioctl so you can deploy the Istio control plane, IstioD. 
+Install `istioctl` so you can deploy the Istio control plane, `IstioD`. 
 
 You will not need to install the Istio ingress gateway instances since this will be managed by your Tyk Gateway.
 

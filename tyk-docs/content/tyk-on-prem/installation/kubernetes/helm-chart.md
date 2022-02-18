@@ -12,9 +12,9 @@ url: "/tyk-self-managed/tyk-helm-chart"
 
 ## Introduction
 
-This is the preferred (and easiest) way to install *Tyk Self-Managed* on Kubernetes. 
-It will install full Tyk platform with *Tyk Manager*, *Tyk Gateways* and *Tyk Pumps* into your Kubernetes cluster where 
-you can add and manage APIs via the *Tyk Operator*, and the *Tyk Manager* (i.e *Tyk Dashboard*).
+This is the preferred (and easiest) way to install **Tyk Self-Managed** on Kubernetes. 
+It will install full Tyk platform with **Tyk Manager**, **Tyk Gateways** and **Tyk Pumps** into your Kubernetes cluster where 
+you can add and manage APIs via the **Tyk Operator**, and the **Tyk Manager** (i.e **Tyk Dashboard**).
 
 ### Prerequisites
 
@@ -22,19 +22,19 @@ you can add and manage APIs via the *Tyk Operator*, and the *Tyk Manager* (i.e *
 If you are evaluating Tyk on Kubernetes, [contact us](https://tyk.io/about/contact/) to obtain a temporary licence.
 
 #### 2. Data stores
-The following are required for a Tyk Self-managed installation:
+The following are required for a Tyk Self-Managed installation:
  - Redis   - Should be installed in the cluster or reachable from inside the cluster (for SaaS option).
              You can find instructions for a simple Redis installation bellow.
- - MongoDB or SQL - Should be installed in the cluster or be reachable by the *Tyk Manager* (for SaaS option).
+ - MongoDB or SQL - Should be installed in the cluster or be reachable by the **Tyk Manager** (for SaaS option).
 
 Installation instructions for Redis and MongoDB/SQL are detailed below.
             
 ## Installation 
 
 This is Tyk's official Helm Charts repository `https://helm.tyk.io/public/helm/charts/`.
-*Tyk Self-Managed* Helm Chart is under the name `tyk-helm/tyk-pro`
+**Tyk Self-Managed** Helm Chart is under the name `tyk-helm/tyk-pro`
 You can also find it in [ArtifactHub](https://artifacthub.io/packages/helm/tyk-helm/tyk-pro).
-<div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/tyk-helm/tyk-pro" data-theme="light" data-header="true" data-responsive="true"><blockquote><p lang="en" dir="ltr"><b>tyk-pro</b>: This chart deploys full Tyk platform. Tyk Gateway is a fully open source Enterprise API Gateway, supporting REST, GraphQL, TCP and gRPC protocols. Tyk Gateway is provided ‘Batteries-included’, with no feature lockout. It enables organisations and businesses around the world to protect, secure, and process APIs and well as review and audit the consumed apis.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/tyk-helm/tyk-pro">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
+<div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/tyk-helm/tyk-pro" data-theme="light" data-header="true" data-responsive="true"><blockquote><p lang="en" dir="ltr"><b>tyk-pro</b>: This chart deploys our full Tyk platform. The Tyk Gateway is a fully open source Enterprise API Gateway, supporting REST, GraphQL, TCP and gRPC protocols. The Tyk Gateway is provided ‘Batteries-included’, with no feature lockout. It enables organisations and businesses around the world to protect, secure, and process APIs and well as review and audit the consumed apis.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/tyk-helm/tyk-pro">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
 
 If you are interested in contributing to our charts, suggesting changes, creating PRs or any other way, 
 please use [GitHub Tyk-helm-chart repo](https://github.com/TykTechnologies/tyk-helm-chart/tree/master/tyk-pro) 
@@ -47,7 +47,7 @@ helm repo add tyk-helm https://helm.tyk.io/public/helm/charts/
 helm repo update
 ```
 
-### Create namespace for Tyk deployment
+### Create namespace for your Tyk deployment
 ```bash
 kubectl create namespace tyk
 ```
@@ -116,7 +116,7 @@ a minimum of 2 to remedy this issue.
 {{< warning  success >}}
 **Warning**
 
-Another option for Redis and MongoDB, to get started quickly, is to use our *simple-redis* and *simple-mongodb* charts.
+Another option for Redis and MongoDB, to get started quickly, is to use our **simple-redis** and **simple-mongodb** charts.
 Please note that these provided charts must not ever be used in production and for anything
 but a quick start evaluation only. Use external redis or Official Redis Helm chart in any other case.
 We provide this chart, so you can quickly get up and running, however it is not meant for long term storage of data for example.
@@ -129,11 +129,11 @@ helm install mongo tyk-helm/simple-mongodb -n tyk
 
 ### License setting
 
-For *Tyk Self-managed* chart we need to set the license key in your custom `values.yaml` file under `dash.license` field
+For the **Tyk Self-Managed** chart we need to set the license key in your custom `values.yaml` file under `dash.license` field
 or use `--set dash.license={YOUR-LICENSE_KEY}` with the `helm install` command.
 
 
-Tyk Self-managed licensing allow for different numbers of Gateway nodes to connect to a single Dashboard instance.
+Tyk Self-Managed licensing allow for different numbers of Gateway nodes to connect to a single Dashboard instance.
 To ensure that your Gateway pods will not scale beyond your license allowance, change the Gateway's resource kind from *DaemonSet* to *Deployment*
 and the replica count to your license node limit. For example, use the following options for a single node license:
 `--set gateway.kind=Deployment --set gateway.replicaCount=1` in your `values.yaml` file or in the Helm install command.
@@ -156,7 +156,7 @@ helm install tyk-pro tyk-helm/tyk-pro -f ./values.yaml -n tyk --wait
 {{< note success >}}
 **Important Note regarding MongoDB**
 
-The `--wait` argument is important to successfully complete the bootstrap of your *Tyk Manager*..
+The `--wait` argument is important to successfully complete the bootstrap of your **Tyk Manager**.
 
 {{< /note >}}
 
@@ -180,34 +180,34 @@ For example:
 Sharding is the ability for you to decide which of your APIs are loaded on which of your Tyk Gateways. This option is
 turned off by default, however, you can turn it on by updating the `gateway.sharding.enabled` option. Once you do that you
 will also need to set the `gateway.sharding.tags` field with the tags that you want that particular Gateway to load. (ex. tags: "external,ingress".)
-You can then add those tags to your APIs in the API Designer, under the *Advanced Options* tab, and
-the *Segment Tags (Node Segmentation)* section in your Tyk Dashboard.
+You can then add those tags to your APIs in the API Designer, under the **Advanced Options** tab, and
+the **Segment Tags (Node Segmentation)** section in your Tyk Dashboard.
 Check [Tyk Gateway Sharding]({{< ref "/content/advanced-configuration/manage-multiple-environments/manage-multiple-environments.md#api-sharding" >}}) for more details.
 
 
 ## Other Tyk Components
 
 ### Installing Tyk Self-managed Control Plane
-If you are deploying the *Tyk Control plane*, a.k.a *MDCB*, for a *Tyk Multi data Centre* deployment then you set
-the `mdcb.enabled: true` option in the local `values.yaml` to add of the *MDCB* component to your installation.
+If you are deploying the **Tyk Control plane**, a.k.a **MDCB**, for a **Tyk Multi Data Centre Bridge** deployment then you set
+the `mdcb.enabled: true` option in the local `values.yaml` to add of the **MDCB** component to your installation.
 Check [Tyk Control plane](https://tyk.io/docs/tyk-multi-data-centre/) for more configuration details.
 
 This setting enables multi-cluster, multi Data-Centre API management from a single dashboard.
 
 #### Secrets
-Tyk *MDCB* registry is private and requires adding users to our organisation which you then define as a secret when pulling the *MDCB* image.
+The Tyk **MDCB** registry is private and requires adding users to our organisation which you then define as a secret when pulling the **MDCB** image.
 Please contact your account manager to arrange this.
 
 ### Tyk Identity Broker (TIB)
-The *Tyk Identity Broker* (TIB) is a micro-service portal that provides a bridge between various Identity Management Systems
+The **Tyk Identity Broker** (TIB) is a micro-service portal that provides a bridge between various Identity Management Systems
 such as LDAP, OpenID Connect providers and legacy Basic Authentication providers, to your Tyk installation.
 See [TIB]({{< ref "/content/tyk-stack/tyk-identity-broker/getting-started.md" >}}) for more details.
 
-For SSO to *Tyk Manager* and *Tyk developer portal* purposes you do not need to install *TIB*, as its functionality is now
-part of the *Tyk Manager*. However, if you want to run it separately (as you used to before this merge) or if you need it
- as a broker for the *Tyk gateway* you can do so.
+For SSO to **Tyk Manager** and **Tyk developer portal** purposes you do not need to install **TIB**, as its functionality is now
+part of the **Tyk Manager**. However, if you want to run it separately (as you used to before this merge) or if you need it
+ as a broker for the **Tyk Gateway** you can do so.
 
-Once you have installed *Tyk Gateway* and *Tyk Manager*, you can configure *TIB* by adding its configuration environment variables
+Once you have installed your **Tyk Gateway** and **Tyk Manager**, you can configure **TIB** by adding its configuration environment variables
 under the `tib.extraEnvs` section and updating the `profile.json` in your `configs` folder.
 See our [TIB GitHub repo](https://github.com/TykTechnologies/tyk-identity-broker#how-to-configure-tib).
 Once you complete your modifications you can run the following command from the root of the repository to update your helm chart.
@@ -216,20 +216,20 @@ Once you complete your modifications you can run the following command from the 
 helm upgrade tyk-pro values.yaml -n tyk
 ```
 
-This chart implies there's a *ConfigMap* with a `profiles.json` definition in it. Please use `tib.configMap.profiles` value
-to set the name of this *ConfigMap* (`tyk-tib-profiles-conf` by default).
+This chart implies there's a **ConfigMap** with a `profiles.json` definition in it. Please use `tib.configMap.profiles` value
+to set the name of this **ConfigMap** (`tyk-tib-profiles-conf` by default).
 
-### Tyk as an Ingress using Tyk operator
+### Tyk as an Ingress using Tyk Operator
 To set up an ingress for your Tyk Gateways see our [Tyk Operator GitHub repository](https://github.com/TykTechnologies/tyk-operator).
 
 ### Istio Service Mesh with Tyk as an Ingress
-To use Tyk's gateways as the ingress to your Istio Service Mesh simply change `gateway.enableIstioIngress: true` in the
+To use Tyk's Gateways as the ingress to your Istio Service Mesh simply change `gateway.enableIstioIngress: true` in the
 `values.yaml`. Ensure you are using an Istio manifest which disables the default Istio Ingress gateway.
-Check this [guide]({{< ref "/content/tyk-on-prem/installation/istio-ingress.md" >}}) for a detailed installation.
+See [As an Ingress with Istio Service Mesh]({{< ref "/content/tyk-on-prem/installation/istio-ingress.md" >}}) for a detailed installation.
 
 
 ## Next Steps Tutorials
-Follow the Tutorials on the **Self Managed** tabs for the following:
+Follow the Tutorials on the **Self-Managed** tabs for the following:
 
 1. [Add an API]({{< ref "/content/getting-started/tutorials/create-api.md" >}})
 2. [Create a Security Policy]({{< ref "/content/getting-started/tutorials/create-security-policy.md" >}})

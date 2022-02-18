@@ -70,11 +70,11 @@ $ ansible-playbook playbook.yaml -t tyk-dashboard
 
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
-## Install Tyk Dashboard: Red Hat
+## Install Tyk Dashboard on Red Hat
 
 Tyk has its own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
-This tutorial will run on an [Amazon AWS][2] *Red Hat Enterprise Linux 7.1* instance. We will install Tyk Dashboard with all dependencies stored locally.
+This tutorial will run on an [Amazon AWS][2] **Red Hat Enterprise Linux 7.1** instance. We will install the Tyk Dashboard with all dependencies stored locally.
 
 We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
 
@@ -101,7 +101,7 @@ sudo yum install pygpgme yum-utils wget
 
 Next, we need to set up the various repository configurations for Tyk Dashboard and MongoDB:
 
-### Step 2: Configure Tyk Dashboard
+### Step 2: Configure the Tyk Dashboard
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-dashboard.repo` that contains the repository configuration below. https://packagecloud.io/tyk/tyk-dashboard/install#manual-rpm
 ```bash

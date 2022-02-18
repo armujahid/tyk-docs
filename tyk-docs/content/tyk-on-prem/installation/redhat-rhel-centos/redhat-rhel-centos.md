@@ -139,7 +139,7 @@ Read more about PostgreSQL configuration [here](https://github.com/geerlingguy/a
 
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
-## Install Tyk Pro on Red Hat (RHEL) / CentOS
+## Install Tyk Self-Managed on Red Hat (RHEL) / CentOS
 
 Installing Tyk on RHEL is very straightforward using our YUM repositories, follow the guides and tutorials in this section to have Tyk up and running in no time.
 
