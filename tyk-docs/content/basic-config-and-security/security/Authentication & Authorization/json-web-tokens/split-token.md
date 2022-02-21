@@ -1,7 +1,7 @@
 ---
 date: 2021-01-12T19:50:24Z
 title: Split Token
-tags: ["JWT", "JSON Web Token", "Security"]
+tags: ["JWT", "JSON Web Token", "Security", "oAuth2.0", "oAuth", "API security", "API Access control", "API ACL"]
 description: "How to split the token doc"
 menu:
   main:
