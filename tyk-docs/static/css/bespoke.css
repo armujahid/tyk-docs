@@ -5447,7 +5447,7 @@ body {
   }
 
   .wysiwyg pre {
-    margin-left: -26px;
+   /* margin-left: -26px; */
     margin-right: -26px;
     padding: 26px;
   }
