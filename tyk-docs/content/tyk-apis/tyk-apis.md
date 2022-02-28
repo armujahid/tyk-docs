@@ -36,8 +36,8 @@ The Tyk Dashboard API allows much more fine-grained, secure and multi-user acces
 
 <div class="postman-run-button"
 data-postman-action="collection/fork"
-data-postman-var-1="17155284-294cff49-e255-4ca9-b805-15fb8fe96297"
-data-postman-collection-url="entityId=17155284-294cff49-e255-4ca9-b805-15fb8fe96297&entityType=collection&workspaceId=379673ec-4cc5-4b8e-bef5-8a6a988071cb"></div>
+data-postman-var-1="17155284-85d19715-5b29-46bd-b6ef-e211ccd78b43"
+data-postman-collection-url="entityId=17155284-85d19715-5b29-46bd-b6ef-e211ccd78b43&entityType=collection&workspaceId=379673ec-4cc5-4b8e-bef5-8a6a988071cb"></div>
 <script type="text/javascript">
   (function (p,o,s,t,m,a,n) {
     !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
