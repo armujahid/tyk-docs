@@ -151,11 +151,12 @@ gpg: Good signature from "Team Tyk (package signing) <team@tyk.io>" [ultimate]
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly.
 
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
+
 {{< note success >}}
 **Note**
 
-{{< tabs_start >}}
-{{< tab_start "MongoDB" >}}
 You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
 {{< /note >}}
 
@@ -191,5 +192,6 @@ sudo tail -f /var/log/upstart/tyk-pump.log
 
 
 [1]: https://packagecloud.io
+
 {{< tab_end >}}
 {{< tabs_end >}}
