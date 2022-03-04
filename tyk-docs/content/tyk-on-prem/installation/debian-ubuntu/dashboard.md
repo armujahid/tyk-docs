@@ -80,7 +80,7 @@ This tutorial has been tested on Ubuntu 16.04 & 18.04 with few if any modificati
 
 ### Prerequisites
 
-- Have MongoDb and Redis installed - see [here][2] for details.
+- Have MongoDb/SQL and Redis installed - see [here][2] for details.
 - Ensure port `3000` is available. This is used by the Dashboard to provide the GUI and the Developer Portal.
 
 ### Step 1: Set up our APT Repositories
