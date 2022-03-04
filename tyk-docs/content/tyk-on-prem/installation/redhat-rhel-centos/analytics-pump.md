@@ -117,6 +117,7 @@ If you don't complete this step, you won't see any analytics in your Dashboard, 
 
 {{< tabs_start >}}
 {{< tab_start "MongoDB" >}}
+<br>
 
 {{< note success >}}
 **Note**
