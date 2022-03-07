@@ -201,14 +201,14 @@ You need to ensure the PostgreSQL and Redis services are running before proceedi
 {{< note success >}}
 **Note**  
 
-You need to replace `<hostname>` for `--redishost=<hostname>`, and `<User>`, `<Password>`, `<IP Address>`, `<Port>` for `--postgres=postgres://<User>:<Password>@<IP Address>:<Port>/` with your own values to run this script.
+You need to replace `<hostname>` for `--redishost=<hostname>`, and `<Postgres Host Name>`, `<Port>`, `<User>`, `<Password>`, `<DB>` for `--connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"` with your own values to run this script.
 {{< /note >}}
 
 
 We can set the dashboard up with a helper setup command script. This will get the dashboard set up for the local instance:
 
 ```bash
-sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --storage=postgres --connection_string=postgres://<User>:<Password>@<IP Address>:<Port>/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
+sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --storage=postgres --connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>" --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
 
 {{< note success >}}
@@ -225,7 +225,7 @@ What we have done here is:
 - `--redisport=6379`: The Tyk Dashboard should use the default port.
 - `--domain="XXX.XXX.XXX.XXX"`: Bind the dashboard to the IP or DNS hostname of this instance (required).
 - `--storage=postgres`: Use storage type postgres.
-- `--connection_string=postgres://<User>:<Password>@<IP Address>:<Port>/tyk_analytics`: Use the postgres instance provided in the connection string(should always be the same as the gateway).
+- `--connection_string="host=<Postgres Host Name> port=<Port> user=<User> password=<Password> dbname=<DB>"`: Use the postgres instance provided in the connection string(should always be the same as the gateway).
 - `--tyk_api_hostname=$HOSTNAME`: The Tyk Dashboard has no idea what hostname has been given to Tyk, so we need to tell it, in this instance we are just using the local HOSTNAME env variable, but you could set this to the public-hostname/IP of the instance.
 - `--tyk_node_hostname=http://localhost`: The Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
 - `--tyk_node_port=8080`: Tell the dashboard that the Tyk node it should communicate with is on port 8080.
