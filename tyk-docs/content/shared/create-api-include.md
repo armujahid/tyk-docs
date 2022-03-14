@@ -3,6 +3,11 @@
 
 <!-- START OMIT -->
 
+## Prerequisites
+
+In order to complete this tutorial, you need to have [Tyk Self Managed installed](/docs/tyk-self-managed/install/).
+{{< button href="https://tyk.io/sign-up/" color="green" content="Try it free" >}}
+
 ## Tutorial: Create an API with the Dashboard
 
 We have a video walkthrough for creating an API and testing an endpoint via Postman.
@@ -182,5 +187,6 @@ Content-Length: 57
 
 Congratulations - You have just created your first keyless API, then protected it using Tyk!
 
-
+Want to learn more from one of our team?
+{{< button href="https://tyk.io/book-a-demo/" color="green" content="Book a demo" >}}
 <!-- END OMIT -->
