@@ -21,7 +21,8 @@ aliases:
 The Cloud is simply the SaaS version of the Self-Managed product, but there are a few differences.  Please make sure you follow the Cloud [Get Started](/docs/tyk-cloud/getting-started-tyk-cloud/first-api/) guide instead.
 
 Want to learn more from one of our team?
-{{< button href="https://tyk.io/book-a-demo/" color="green" content="Book a demo" >}}
+
+{{< button_left href="https://tyk.io/book-a-demo/" color="green" content="Book a demo" >}}
 
 {{< tab_end >}}
 {{< tab_start "Self-Managed" >}}
@@ -45,7 +46,8 @@ We just sent an API definition to the Tyk `/apis` endpoint, API definitions are 
 ## Prerequisites
 
 In order to complete this tutorial, you need to have the [Tyk Community Edition installed](/docs/tyk-oss-gateway/).
-{{< button href="https://tyk.io/sign-up/" color="green" content="Try it out" >}}
+
+{{< button_left href="https://tyk.io/sign-up/" color="green" content="Try it out" >}}
 ## Creation Methods
 
 With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk's Gateway API or to generate a file with the same object and store it in the `/apps` folder of the Tyk Gateway installation folder. This is demonstrated [here](#with-file-based-mode).

@@ -64,4 +64,5 @@ Click **Save** from the API Designer. Your API will now be added to the APIs lis
 Next you'll access your API from the Gateway Ingress.
 
 Want to learn more from one of our team?
-{{< button href="https://tyk.io/book-a-demo/" color="green" content="Book a demo" >}}
+
+{{< button_left href="https://tyk.io/book-a-demo/" color="green" content="Book a demo" >}}
