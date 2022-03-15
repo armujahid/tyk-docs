@@ -39,6 +39,16 @@ If you are on an LTS release (RX.0), you can directly put any minor release on t
 For exceptional cases, a data migration script run might be required.
 {{< /note >}}
 
+## LTS release timetable
+
+| Version | Live          | Becomes Recommended Version | Full Support End Date | Extended Support End Date |
+|---------|---------------|-----------------------------|-----------------------|---------------------------|
+| R3      | July 2020     | Nov 2020                    | May 2022              | May 2024                  |
+| R4      | February 2022 | May 2022                    | May 2023              | May 2024                  |
+| R5      | February 2023 | May 2023                    | May 2024              | May 2025                  |
+| R6      | February 2024 | May 2024                    | May 2025              | May 2026                  |
+| R7      | February 2025 | May 2025                    | May 2026              | May 2027                  |
+
 ## What is Hypercare?
 
 Hypercare is a period immediately after a release where an elevated period of support is available. We run patches based on need and criticality, and single fix patching can be done if the severity and impact of a bug denotes that a fix is critical.
