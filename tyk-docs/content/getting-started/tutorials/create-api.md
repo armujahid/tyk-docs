@@ -41,6 +41,10 @@ If the command succeeds, you will see:
 **What did we just do?**
 
 We just sent an API definition to the Tyk `/apis` endpoint, API definitions are discussed in detail in the [Tyk Gateway API documentation](/docs/tyk-gateway-api/)api-definition-objects/). These objects encapsulate all of the settings for an API within Tyk.
+
+Want to learn more from one of our team?
+
+{{< button_left href="https://tyk.io/book-a-demo/" color="green" content="Book a demo" >}}
 {{< tab_end >}}
 {{< tab_start "Open Source" >}}
 ## Prerequisites
