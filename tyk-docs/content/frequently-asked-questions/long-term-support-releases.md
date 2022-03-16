@@ -31,7 +31,7 @@ After the Hypercare 3 month period, this release is labelled as a recommended re
 Minor releases are not a part of the LTS but are fully supported until the next minor release is live.
 {{< /note >}}
 
-After 12 months, there is a new LTS release, and the previous version remains in full support for a further 3 months before it moves into extended support.
+After 12 months, there is a new LTS release, and the previous version remains in full support for a further 3 months before it moves into [extended support](#what-is-extended-support).
 
 If you are on an LTS release (RX.0), you can directly put any minor release on top of that( RX.1, RX.2, etc) instead of installing the previous version of the minor release.
 
@@ -54,3 +54,12 @@ For exceptional cases, a data migration script run might be required.
 ## What is Hypercare?
 
 Hypercare is a period immediately after a release where an elevated period of support is available. We run patches based on need and criticality, and single fix patching can be done if the severity and impact of a bug denotes that a fix is critical.
+
+## What Is Extended Support?
+In the extended support period Tyk will continue to patch any production critical patches and security issues, we will not add new features to the platform during this period.
+
+{{< note success >}}
+**Note**  
+
+From R4 onwards, extended support will be for 12 months after the full support end date.
+{{< /note >}}
