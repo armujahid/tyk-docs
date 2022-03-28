@@ -18,7 +18,7 @@ This request provides the client credentials in exchange for an API token.
 
 ```shell
 curl -X POST \
-  https://tyk.cloud.tyk.io/oauth-api/oauth/token/ \
+  https://tyk.cloud.tyk.io/clientcredentials/oauth/token/ \
   -H 'Authorization: Basic ZWQ1OTE1OGZhMjM0NGU5NGIzZTYyNzhlOGFiODUxNDI6TUdRM056RTJNR1F0WVRVeVpDMDBaVFZsTFdKak1USXRNakUyTVRNMU1tRTNOMk0x' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'grant_type=client_credentials&client_id=ed59158fa2344e94b3e6278e8ab85142&client_secret=MGQ3NzE2MGQtYTUyZC00ZTVlLWJjMTItMjE2MTM1MmE3N2M1'
