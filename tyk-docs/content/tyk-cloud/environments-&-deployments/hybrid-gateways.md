@@ -106,18 +106,21 @@ Hybrid Gateways are available on our [14 Day Free Trial](/docs/tyk-cloud/account
 
 ## Hybrid Gateways in a Kubernetes Cluster
 This Helm Chart provides a method of adding Hybrid Gateways into your Kubernetes cluster.
-The Hybrid Gateways can connected to *Tyk Cloud* or to a *Tyk Self managed Control plane* (a.k.a *MDCB*/*Tyk Multi Data Centre Bridge (MDCB)*).
+The Hybrid Gateways can be connected to *Tyk Cloud* or to a *Tyk Self managed Control plane* (a.k.a *MDCB*/*Tyk Multi Data Centre Bridge (MDCB)*).
 
 ### Prerequisites
-Redis - required for all the Tyk installations and must be installed in the cluster or
-        reachable from inside K8s. You can find instructions for a simple Redis installation bellow.
+Redis - required for all Tyk installations and must be installed in the cluster or
+        reachable from inside K8s. You can find instructions for a simple Redis installation below.
 
 ### Installation
-This is *Tyk*'s official Helm repository `https://helm.tyk.io/public/helm/charts/`.
-You can also find the *Tyk Hybrid* Helm chart in [artifacthub](https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid).
 
-If you are interested in contributing, suggesting changes or creating PRs, please use our
-[GitHub repo](https://github.com/TykTechnologies/tyk-helm-chart/tree/master/tyk-hybrid).
+This is Tyk's official Helm Charts repository `https://helm.tyk.io/public/helm/charts/`.
+*Tyk Hybrid* Helm Chart is under the name `tyk-helm/tyk-hybrid`
+You can also find it in [ArtifactHub](https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid).
+<div class="artifacthub-widget" data-url="https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid" data-theme="light" data-header="true" data-responsive="true"><blockquote><p lang="en" dir="ltr"><b>tyk-hybrid</b>: This chart deploys the open source Tyk Gateway with a Hybrid setup that connects to a management control plan. Tyk is a fully open source Enterprise API Gateway, supporting REST, GraphQL, TCP and gRPC protocols. Tyk Gateway is provided ‘Batteries-included’, with no feature lockout. It enables organisations and businesses around the world to protect, secure, and process APIs and well as review and audit the consumed apis.</p>&mdash; Open in <a href="https://artifacthub.io/packages/helm/tyk-helm/tyk-hybrid">Artifact Hub</a></blockquote></div><script async src="https://artifacthub.io/artifacthub-widget.js"></script>
+
+If you are interested in contributing to our charts, suggesting changes, creating PRs or any other way,
+please use [GitHub Tyk-helm-chart repo](https://github.com/TykTechnologies/tyk-helm-chart/tree/master/tyk-hybrid)
 
 #### Add Tyk official Helm repo
 ```bash
@@ -167,10 +170,10 @@ helm show values tyk-helm/tyk-hybrid > values.yaml
 ```
 
 #### Setting values.yaml
-1. to allow the *Tyk Hybrid Gateway* to connect to *Tyk control plane* (*MDCB* management layer), add your connection
+1. To allow the *Tyk Hybrid Gateway* to connect to *Tyk control plane* (*MDCB* management layer), add your connection
 string in the `gateway.rpc.connString`. On the Tyk Cloud Console find this value in the endpoints panel for your control plane deployment.
 2. For *Tyk Gateway* to identify itself against *Tyk control plane*, add your Dashboard users API key in the `gateway.rpc.apiKey` field.
-3. Add your Dashboard users organisation ID in the `gateway.rpc.rpcKey` field
+3. Add your Dashboard users organisation ID in the `gateway.rpc.rpcKey` field.
 
 Check this (doc)[/tyk-multi-data-centre/setup-slave-data-centres/] for detailed explanation of the hybrid/worker Gateway settings.
 

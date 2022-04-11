@@ -43,8 +43,18 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-pump`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-pump
+$ ansible-playbook playbook.yaml -t tyk-pump
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Amazon Linux | 2 | ✅ |
+| CentOS | 8 | ✅ |
+| CentOS | 7 | ✅ |
+| RHEL | 8 | ✅ |
+| RHEL | 7 | ✅ |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 ## Install Tyk Pump on Red Hat (RHEL) / CentOS
@@ -59,7 +69,7 @@ This configuration should also work (with some tweaks) for CentOS.
 
 ### Prerequisites
 
-*   We are assuming that both Redis and MongoDB are installed (these are installed as part of the Tyk Gateway and Dashboard installation guides)
+We are assuming that Redis and either MongoDB or SQL are installed (these are installed as part of the Tyk Gateway and Dashboard installation guides)
 
 ### Step 1: Set up YUM Repositories
 
@@ -105,17 +115,35 @@ sudo yum install -y tyk-pump
 
 If you don't complete this step, you won't see any analytics in your Dashboard, so to enable the analytics service, we need to ensure Tyk Pump is running and configured properly.
 
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
+<br>
 
 {{< note success >}}
-**Note**  
+**Note**
 
 You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>` for `--mongo=mongodb://<IP Address>/` with your own values to run this script.
 {{< /note >}}
 
-
 ```bash
 sudo /opt/tyk-pump/install/setup.sh --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics
 ```
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+
+We recommend installing MongoDB and then using our new [SQL migration tool]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md#migrating-from-an-existing-mongodb-instance" >}}).
+
+{{< note success >}}
+**Note**  
+
+The migration tool will not migrate any Logs, Analytics or Uptime analytics data.
+{{< /note >}}
+
+See [Database options]({{< ref "/content/tyk-stack/tyk-manager/database-options.md" >}}) for our supported SQL platforms.
+
+{{< tab_end >}}
+{{< tabs_end >}}
+
 ### Step 4: Start Tyk Pump
 ```bash
 sudo service tyk-pump start
@@ -127,7 +155,10 @@ You can verify if Tyk Pump is running and working by accessing the logs:
 ```bash
 sudo journalctl -u tyk-pump
 ```
+
+
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
+
 {{< tab_end >}}
 {{< tabs_end >}}

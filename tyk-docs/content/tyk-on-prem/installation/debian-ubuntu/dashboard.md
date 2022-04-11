@@ -44,8 +44,32 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-dashboard`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-dashboard
+$ ansible-playbook playbook.yaml -t tyk-dashboard
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Debian | 10 | ✅ |
+| Debian | 9 | ✅ |
+| Ubuntu | 21 | ✅ |
+| Ubuntu | 20 | ✅ |
+| Ubuntu | 18 | ✅ |
+| Ubuntu | 16 | ✅ |
+
+## Variables
+- `vars/tyk.yaml`
+
+| Variable | Default | Comments |
+| --------- | :---------: | --------- |
+| secrets.APISecret | `352d20ee67be67f6340b4c0605b044b7` | API secret |
+| secrets.AdminSecret | `12345` | Admin secret |
+| dash.license | | Dashboard license|
+| dash.service.host | | Dashboard server host if different than the hosts url |
+| dash.service.port | `3000` | Dashboard server listening port |
+| dash.service.proto | `http` | Dashboard server protocol |
+| dash.service.tls | `false` | Set to `true` to enable SSL connections |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
 ## <a name="install-tyk-dashboard-ubuntu"></a>Install Tyk Dashboard on Ubuntu
@@ -131,7 +155,8 @@ gpg: Good signature from "Team Tyk (package signing) <team@tyk.io>" [ultimate]
 ```
 
 ## Configure Tyk Dashboard
-
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
 ### Prerequisites
 
 You need to ensure the MongoDB and Redis services are running before proceeding.
@@ -167,6 +192,22 @@ What we have done here is:
 - `--tyk_node_hostname=http://localhost`: The Tyk Dashboard needs to see a Tyk node in order to create new tokens, so we need to tell it where we can find one, in this case, use the one installed locally.
 - `--tyk_node_port=8080`: Tell the dashboard that the Tyk node it should communicate with is on port 8080.
 - `--portal_root=/portal`: We want the portal to be shown on `/portal` of whichever domain we set for the portal.
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+
+We recommend installing MongoDB and then using our new [SQL migration tool]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md#migrating-from-an-existing-mongodb-instance" >}}).
+
+{{< note success >}}
+**Note**  
+
+The migration tool will not migrate any Logs, Analytics or Uptime analytics data.
+{{< /note >}}
+
+See [Database options]({{< ref "/content/tyk-stack/tyk-manager/database-options.md" >}}) for our supported SQL platforms.
+
+{{< tab_end >}}
+{{< tabs_end >}}
+
 
 ### Step 1: Enter your Dashboard License
 
@@ -221,8 +262,14 @@ Click **Bootstrap** to save the details.
 
 You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
+## Configure your Developer Portal
+
+To set up your [Developer Portal]({{< ref "/content/tyk-stack/tyk-developer-portal/tyk-developer-portal.md" >}}) follow our Self-Managed [tutorial on publishing an API to the Portal Catalogue]({{< ref "/content/getting-started/tutorials/create-portal-entry.md" >}}).
+
 [1]: https://packagecloud.io/tyk
 [2]: /docs/getting-started/installation/with-tyk-on-premises/on-ubuntu/#prerequisites
 [3]: /docs/img/dashboard/system-management/bootstrap_screen.png
+
+
 {{< tab_end >}}
 {{< tabs_end >}}

@@ -43,15 +43,38 @@ $ sh scripts/init.sh
 5. Run ansible-playbook to install `tyk-dashboard`
 
 ```bash
-$ ansible-playbook playbook.yml -t tyk-dashboard
+$ ansible-playbook playbook.yaml -t tyk-dashboard
 ```
+
+## Supported Distributions
+| Distribution | Version | Supported |
+| --------- | :---------: | :---------: |
+| Amazon Linux | 2 | ✅ |
+| CentOS | 8 | ✅ |
+| CentOS | 7 | ✅ |
+| RHEL | 8 | ✅ |
+| RHEL | 7 | ✅ |
+
+## Variables
+- `vars/tyk.yaml`
+
+| Variable | Default | Comments |
+| --------- | :---------: | --------- |
+| secrets.APISecret | `352d20ee67be67f6340b4c0605b044b7` | API secret |
+| secrets.AdminSecret | `12345` | Admin secret |
+| dash.license | | Dashboard license|
+| dash.service.host | | Dashboard server host if different than the hosts url |
+| dash.service.port | `3000` | Dashboard server listening port |
+| dash.service.proto | `http` | Dashboard server protocol |
+| dash.service.tls | `false` | Set to `true` to enable SSL connections |
+
 {{< tab_end >}}
 {{< tab_start "Shell" >}}
-## Install Tyk Dashboard: Red Hat
+## Install Tyk Dashboard on Red Hat
 
 Tyk has its own signed RPMs in a YUM repository hosted by the kind folks at [packagecloud.io][1], which makes it easy, safe and secure to install a trusted distribution of the Tyk Gateway stack.
 
-This tutorial will run on an [Amazon AWS][2] *Red Hat Enterprise Linux 7.1* instance. We will install Tyk Dashboard with all dependencies stored locally.
+This tutorial will run on an [Amazon AWS][2] **Red Hat Enterprise Linux 7.1** instance. We will install the Tyk Dashboard with all dependencies stored locally.
 
 We're installing on a `t2.micro` because this is a tutorial, you'll need more RAM and more cores for better performance.
 
@@ -78,7 +101,7 @@ sudo yum install pygpgme yum-utils wget
 
 Next, we need to set up the various repository configurations for Tyk Dashboard and MongoDB:
 
-### Step 2: Configure Tyk Dashboard
+### Step 2: Configure the Tyk Dashboard
 
 Create a file named `/etc/yum.repos.d/tyk_tyk-dashboard.repo` that contains the repository configuration below. https://packagecloud.io/tyk/tyk-dashboard/install#manual-rpm
 ```bash
@@ -94,8 +117,9 @@ sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
 ```
-
-### Step 3: Configure MongoDB v4.0
+### Step 3: Configure MongoDB v4.0 or SQL
+{{< tabs_start >}}
+{{< tab_start "MongoDB" >}}
 
 Create a `/etc/yum.repos.d/mongodb-org-4.0.repo` file so that you can install MongoDB directly, using yum.
 ```bash
@@ -111,24 +135,40 @@ Finally we'll need to update our local cache, so run:
 ```bash
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='tyk_tyk-dashboard'
 ```
-
 ### Step 4: Install Packages
 
 We're ready to go, you can now install the relevant packages using yum:
 ```bash
 sudo yum install -y mongodb-org tyk-dashboard redis
 ```
+{{< tab_end >}}
+{{< tab_start "SQL" >}}
+
+We recommend installing MongoDB and then using our new [SQL migration tool]({{< ref "/content/planning-for-production/database-settings/sql-configuration.md#migrating-from-an-existing-mongodb-instance" >}}).
+
+{{< note success >}}
+**Note**  
+
+The migration tool will not migrate any Logs, Analytics or Uptime analytics data.
+{{< /note >}}
+
+See [Database options]({{< ref "/content/tyk-stack/tyk-manager/database-options.md" >}}) for our supported SQL platforms.
+
+{{< tab_end >}}
+{{< tabs_end >}}
+### Step 4: Install Packages
+
 
 **(you may be asked to accept the GPG key for our repos and when the package installs, hit yes to continue)**
 
 ### Step 5: Start MongoDB and Redis
 
-In many cases MongoDB or Redis might not be running, so let's start that:
+In many cases MongoDB/SQL or Redis might not be running, so let's start that:
 ```bash
 sudo service mongod start
 sudo service redis start
 ```
-
+**ADD SQL**
 ### Step 6: Configure Tyk Dashboard
 
 We can set the Dashboard up with a similar setup command, the script below will get the Dashboard set up for the local instance.
@@ -143,7 +183,7 @@ You need to replace `<hostname>` for `--redishost=<hostname>`, and `<IP Address>
 ```bash
 sudo /opt/tyk-dashboard/install/setup.sh --listenport=3000 --redishost=<hostname> --redisport=6379 --mongo=mongodb://<IP Address>/tyk_analytics --tyk_api_hostname=$HOSTNAME --tyk_node_hostname=http://localhost --tyk_node_port=8080 --portal_root=/portal --domain="XXX.XXX.XXX.XXX"
 ```
-
+**ADD SQL**
 {{< note success >}}
 **Note**  
 
@@ -221,6 +261,9 @@ Click **Bootstrap** to save the details.
 
 You can now log in to the Tyk Dashboard from `127.0.0.1:3000`, using the username and password created in the Dashboard Setup screen.
 
+## Configure your Developer Portal
+
+To set up your [Developer Portal]({{< ref "/content/tyk-stack/tyk-developer-portal/tyk-developer-portal.md" >}}) follow our Self-Managed [tutorial on publishing an API to the Portal Catalogue]({{< ref "/content/getting-started/tutorials/create-portal-entry.md" >}}).
 
  [1]: https://packagecloud.io
  [2]: http://aws.amazon.com
