@@ -41,11 +41,11 @@ The MDCB component will however by default expose an RPC service on port 9091, w
 To download the relevant MDCB package from PackageCloud,
 
 ```{.copyWrapper}
-curl -s https://packagecloud.io/install/repositories/tyk/tyk-mdcb/script.deb.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/tyk/tyk-mdcb-stable/script.deb.sh | sudo bash
 ```
 
 ```{.copyWrapper}
-curl -s https://packagecloud.io/install/repositories/tyk/tyk-mdcb/script.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/tyk/tyk-mdcb-stable/script.rpm.sh | sudo bash
 ```
 
 After the relevant script for your distribution has run, the script will let you know it has finished with the following message:
