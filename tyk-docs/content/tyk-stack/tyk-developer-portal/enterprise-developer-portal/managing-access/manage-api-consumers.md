@@ -1,5 +1,5 @@
 ---
-title: "Manage Api Consumers"
+title: "Manage API Consumers"
 date: 2022-02-09
 tags: [""]
 description: ""

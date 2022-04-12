@@ -23,14 +23,12 @@ This page provides an overview of the most common concepts for the Developer Por
 
 ### What is our Developer Portal? Where does it fit?
 
-**graphic needed**
 
 Tyk Developer Portal enables multiple instances of Tyk Manager, also referred to as a ‘Provider’ because we will soon include other API Managers and Gateways! Each provider provides a list of Policies, APIs and Keys.
 In turn, when the API consumer makes a request and it is approved, the Portal issues a provisioning request to the relevant control plane to issue a key.
 
-### Developer portal and Tyk portal relationship
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-diagram-api-providers.png" alt="Developer portal and Tyk Manager relationship" >}}
 
-**graphic needed**
 
 ### Developer Portal
 
@@ -38,11 +36,16 @@ When referring to the Developer Portal, we’re referring to the portal website 
 
 #### Using a policy in Tyk Self-Managed to create your API product
 
-**graphic needed**
+To create an API Product you need to create a policy which enforces only Access rights.
+
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-import-policy-as-product.png" alt="Using policy to create an API Product" >}}
+
 
 #### Using a policy in Tyk Self-Managed to create your plan
 
-**graphic needed**
+To create an API Product you need to create a policy which enforces only quota and rate limit.
+
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-import-policy-as-product.png" alt="Using policy to create a plan" >}}
 
 ### API products
 
@@ -75,7 +78,7 @@ This section includes:
 
 Here is a potential set-up
 
-**graphic needed**
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-org-team-user-example.png" alt="A sample org set-up" >}}
 
 ### Catalogues
 
@@ -83,8 +86,8 @@ Catalogues enable the publishing API products and plans based on visibility and 
 
 Here’s an example of how you could set up catalogues for the users above:
 
-**graphic needed**
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-catalogue-sample-set-up.png" alt="A sample catalogue set-up" >}}
 
 ### Admin users
 
-The internal users of the admin app
+The internal users of the admin app.

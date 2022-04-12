@@ -15,3 +15,8 @@ weight: 4
 This documentation is for the new Tyk Enterprise Portal currently in private beta. If you are interested in getting access contact us at [support@tyk.io](<mailto:support@tyk.io?subject=Tyk Enterprise Portal Beta>)
 
 {{< /note >}}
+
+
+You can fully customize the look and feel of your Tyk Enterprise Developer Portal, from changing fonts and colors to creating an entirely new layout of pages. This section describes two approaches for customization:
+*   **Quick customization** applies your branding to the developer portal.
+*   **Full customization** allows to completely redesign look and feel of the developer portal.

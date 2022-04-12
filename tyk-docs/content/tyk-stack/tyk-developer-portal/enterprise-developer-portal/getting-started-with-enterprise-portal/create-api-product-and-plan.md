@@ -1,5 +1,5 @@
 ---
-title: "Create Api Product and Plan"
+title: "Create API Product and Plan"
 date: 2022-02-08
 tags: [""]
 description: ""
@@ -45,5 +45,3 @@ To create a Plan for the developer portal, follow the same steps as for creating
 2. Select an API, it doesn’t matter which API you select since the purpose of this policy is simply just to control the allowance. However, selecting an API is a required field which means you need to select an API anyway.
 3.  Under **Global limits and Quota**, select **Enforce usage quota** and **Enforce rate limit**. Ensure **Disable rate-limiting** and **Unlimited requests** are **not** selected so you can set these limits.
 4.  To import the plans into the Developer portal, from the Tyk Portal admin app, click **Synchronise**.
-
-Next Steps

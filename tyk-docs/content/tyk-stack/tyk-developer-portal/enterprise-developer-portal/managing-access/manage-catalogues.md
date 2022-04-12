@@ -26,7 +26,7 @@ In this section, you will learn about how catalogues work and how to create a ne
 
 - Connect to a provider [Tyk Self-Managed]({{< ref "/content/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/with-tyk-self-managed-as-provider.md" >}})
 - Create [policies with enforced access right]({{< ref "/content/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan.md" >}}) (API Product in the Portal)
-- Create one or more [policies with enforced rate limit and quota]({{< ref "/content/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan.md" >}})(Plan in the Portal)
+- Create one or more [policies with enforced rate limit and quota]({{< ref "/content/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan.md" >}}) (Plan in the Portal)
 
 ## Create a new catalogue
 
@@ -36,11 +36,11 @@ In this section, you will learn about how catalogues work and how to create a ne
 
 2. Click Create a new catalogue
 
-**New Screenshot needed**
+{{< img src="/img/dashboard/portal-management/enterprise-portal/portal-managing-access-create-catalogue.png" alt="Create a new catalogue" >}}
 
-3. Add the metadata needed
+3. Enter Name and Path URL
 
-**New Screenshot needed**
+{{< img src="/img/dashboard/portal-management/enterprise-portal/portal-managing-access-add-name.png" alt="Name the new catalogue" >}}
 
 4. Set the access required for the catalogue e.g. Public, Private or Custom
   - Public: External developers can access the catalogue
