@@ -6,6 +6,7 @@ description: "Tyk Developer Portal is the most flexible and simplest way for API
 menu:
   main:
     parent: "Tyk Developer Portal"
+url: "tyk-developer-portal/tyk-enterprise-developer-portal"
 weight: 2
 ---
 
