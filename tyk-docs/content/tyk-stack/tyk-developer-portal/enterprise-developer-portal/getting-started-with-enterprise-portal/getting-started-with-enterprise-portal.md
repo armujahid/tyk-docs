@@ -19,6 +19,6 @@ This documentation is for the new Tyk Enterprise Portal currently in private bet
 
 To get started with the Enterprise Developer portal you need to accomplish three steps:
 
-1. Connect to a prodvider (Tyk Self Managed).
-2. Create and import API Products and Plans in your Tyk Self Managed Instance.	
-3. Publish API Products and Plans to the Developer portal so that API consumers can access them.
+1. [Connect to a provider (Tyk Self Managed).](/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/with-tyk-self-managed-as-provider/)
+2. [Create and import API Products and Plans in your Tyk Self Managed Instance.](/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/create-api-product-and-plan/)
+3. [Publish API Products and Plans to the Developer portal so that API consumers can access them.](/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/getting-started-with-enterprise-portal/publish-api-products-and-plans/)
