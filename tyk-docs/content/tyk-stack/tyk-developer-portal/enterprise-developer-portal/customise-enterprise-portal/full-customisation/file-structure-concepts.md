@@ -74,8 +74,9 @@ You can find an example of the manifest within the “default” theme that is l
 The `templates` field establishes a list of available templates. Every template consists of three fields where `name` is a user-friendly name that will be seen on the Admin app when creating a page, `template` is a reference to the template file itself and `layout` is a reference to the layout that will be used to render the previously set template.
 
 In order to illustrate the current template hierarchy, this is what a typically rendered page would look like. The `layout` would be the top level template and base structure of the page:
+{{< img src="/img/dashboard/portal-management/enterprise-portal/portal-template-layout.png" alt="Template structure" >}}
 
-**Image needed**
+
 
 Also note that the Developer Portal will let you use not just multiple `layouts` and `views` but also any combination of these two. These combinations are set in your manifest file (`theme.json`).
 
