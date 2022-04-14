@@ -34,17 +34,17 @@ To create one, assuming you have one or more APIs already created.
 {{< img src="img/dashboard/portal-management/enterprise-portal/portal-add-policy.png" alt="Create a policy" >}}
 
 3. From the **Access Rights** drop-down list, select one or more APIs to include in your policy.
-{{< img src="img/dashboard/portal-management/portal-select-api-to-include-into-policy.png" alt="Add an API into the policy" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-select-api-to-include-into-policy.png" alt="Add an API into the policy" >}}
 
 4. Under **Global limits and Quota**, select **Enforce access rights**. Ensure **Enforce usage quota** and **Enforce rate limit** are **not** selected.
-{{< img src="img/dashboard/portal-management/portal-enforce-access-rights.png" alt="Enforce access rights" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-enforce-access-rights.png" alt="Enforce access rights" >}}
 
 5. From the **Configurations** tab, add the information needed under name and settings.
 6. From the **Tags** tab, a tag can be added to tell the portal this should be imported. If you have specified a specific label in the Provider section within the Developer portal when adding Tyk, the way the portal would know which Policies to import can be specified here.
-{{< img src="img/dashboard/portal-management/portal-add-tags.png" alt="Add tags to the policy" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-add-tags.png" alt="Add tags to the policy" >}}
 
 7. To import the API Products into the Developer portal, from the Tyk Portal admin app, click **Synchronise**.
-{{< img src="img/dashboard/portal-management/portal-sync-with-dashboard.png" alt="Sync with the Tyk Pro" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-sync-with-dashboard.png" alt="Sync with the Tyk Pro" >}}
 
 
 ## Create and import plans from Tyk
@@ -57,7 +57,7 @@ To create a Plan for the developer portal, follow the same steps as for creating
 
 2. Select an API, it doesn’t matter which API you select since the purpose of this policy is simply just to control the allowance. However, selecting an API is a required field which means you need to select an API anyway.
 3.  Under **Global limits and Quota**, select **Enforce usage quota** and **Enforce rate limit**. Ensure **Disable rate-limiting** and **Unlimited requests** are **not** selected so you can set these limits.
-{{< img src="img/dashboard/portal-management/portal-enforce-quota.png" alt="Enforce quota and rate limit" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-enforce-quota.png" alt="Enforce quota and rate limit" >}}
 
 4.  To import the plans into the Developer portal, from the Tyk Portal admin app, click **Synchronise**.
-{{< img src="img/dashboard/portal-management/portal-sync-with-dashboard.png" alt="Sync with the Tyk Pro" >}}
+{{< img src="img/dashboard/portal-management/enterprise-portal/portal-sync-with-dashboard.png" alt="Sync with the Tyk Pro" >}}

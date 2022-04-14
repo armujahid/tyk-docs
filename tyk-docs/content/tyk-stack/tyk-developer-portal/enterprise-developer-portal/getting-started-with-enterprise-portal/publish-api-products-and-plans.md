@@ -1,5 +1,5 @@
 ---
-title: "Publish Api Products and Plans"
+title: "Publish API Products and Plans"
 date: 2022-02-08
 tags: [""]
 description: ""
