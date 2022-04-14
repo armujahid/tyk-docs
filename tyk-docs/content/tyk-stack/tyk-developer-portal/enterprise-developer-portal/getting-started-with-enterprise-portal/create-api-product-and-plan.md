@@ -1,5 +1,5 @@
 ---
-title: "Create API Product and Plan"
+title: "Create API Product and Plans"
 date: 2022-02-08
 tags: [""]
 description: ""

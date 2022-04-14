@@ -19,6 +19,6 @@ This documentation is for the new Tyk Enterprise Portal currently in private bet
 
 To get started with the Enterprise Developer portal you need to accomplish three steps:
 
-1. Connect to an API prodvider. For now we support only Tyk Pro, but more are to come!
-2. Create policies for API Products and plans in your instance of Tyk Pro.
-3. Import your API Products and plans from your Tyk Pro instance into the  portal and publish them into appropriate catalogues.
+1. Connect to a prodvider (Tyk Self Managed).
+2. Create and import API Products and Plans in your Tyk Self Managed Instance.	
+3. Publish API Products and Plans to the Developer portal so that API consumers can access them.

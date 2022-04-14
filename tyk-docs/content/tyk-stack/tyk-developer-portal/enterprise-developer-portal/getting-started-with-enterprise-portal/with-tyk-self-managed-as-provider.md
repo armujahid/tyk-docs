@@ -1,5 +1,5 @@
 ---
-title: "With Tyk Self Managed as Provider"
+title: "Connect to a prodvider (Tyk Self Managed)"
 date: 2022-02-08
 tags: [""]
 description: ""
