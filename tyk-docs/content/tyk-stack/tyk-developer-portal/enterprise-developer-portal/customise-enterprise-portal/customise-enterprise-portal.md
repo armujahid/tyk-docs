@@ -19,4 +19,4 @@ This documentation is for the new Tyk Enterprise Portal currently in private bet
 
 You can fully customize the look and feel of your Tyk Enterprise Developer Portal, from changing fonts and colors to creating an entirely new layout of pages. This section describes two approaches for customization:
 *   [Quick customization](/docs/tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/quick-customisation/) applies your branding to the developer portal.
-*   [Full customization](/tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/full-customisation/) allows to completely redesign look and feel of the developer portal.
+*   [Full customization](/tyk-stack/tyk-developer-portal/enterprise-developer-portal/customise-enterprise-portal/full-customisation/) allows to completely redesign look and feel of the developer portal.
