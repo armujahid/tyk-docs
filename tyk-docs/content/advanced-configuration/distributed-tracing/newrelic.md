@@ -49,5 +49,10 @@ In `tyk.conf` on `tracing` setting
   }
 }
 ```
+## Note:
+Based on [Trace API](https://docs.newrelic.com/docs/distributed-tracing/trace-api/introduction-trace-api/) compatibility with Zipkin, you can use send tracing data to New relic by enabling zipkin opentracing.
 
 `reporter.url` is the URL to the Zipkin server, where trace data will be sent.
+
+## Note:
+NewRelic supports [OpenTracing](https://docs.newrelic.com/docs/distributed-tracing/trace-api/report-zipkin-format-traces-trace-api/)for sending telemetry, and provide Zipkin compatible API endpoint.
