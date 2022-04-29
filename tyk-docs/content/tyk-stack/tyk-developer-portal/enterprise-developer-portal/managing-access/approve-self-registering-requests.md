@@ -5,7 +5,7 @@ tags: [""]
 description: ""
 menu:
   main:
-    parent: "Manage Api Users"
+    parent: "Manage API Users"
 weight: 3
 ---
 
