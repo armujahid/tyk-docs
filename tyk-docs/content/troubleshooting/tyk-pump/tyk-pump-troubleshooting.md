@@ -10,7 +10,7 @@ url: "/troubleshooting/tyk-pump"
 
 [Tyk Pump Panic “stack exceeds 1000000000-byte limit“]({{< ref "/content/troubleshooting/tyk-pump/panic-stack-exceeds-1000000000-byte-limit.md" >}})
 
-[Connection dropped, connecting...]({{< ref "/content/troubleshooting/tyk-pump/connection-dropped-connecting.md" >}})
+[Connection dropped, connecting]({{< ref "/content/troubleshooting/tyk-pump/connection-dropped-connecting.md" >}})
 
 [No Elasticsearch node available]({{< ref "/content/troubleshooting/tyk-pump/no-elasticsearch-node-available.md" >}})
 
