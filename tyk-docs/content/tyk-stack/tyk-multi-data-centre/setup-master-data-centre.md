@@ -22,14 +22,14 @@ We will assume that the following components are up and running in your master D
 ## MDCB Component Installation
 The MDCB component will only need to be able to connect to Redis and MongoDB directly from within the master DC. It does not require access to the Tyk Gateway(s) or Dashboard application.
 The MDCB component will however by default expose an RPC service on port 9091, which worker DCs will need connectivity to.
-You should also have received a command to run containing a token to download the relevant MDCB package from PackageCloud.
+To download the relevant MDCB package from PackageCloud,
 
 ```{.copyWrapper}
-curl -s https://TOKEN:@packagecloud.io/install/repositories/tyk/tyk-mdcb/script.deb.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/tyk/tyk-mdcb-stable/script.deb.sh | sudo bash
 ```
 
 ```{.copyWrapper}
-curl -s https://TOKEN:@packagecloud.io/install/repositories/tyk/tyk-mdcb/script.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/tyk/tyk-mdcb-stable/script.rpm.sh | sudo bash
 ```
 
 After the relevant script for your distribution has run, the script will let you know it has finished with the following message:
@@ -52,12 +52,6 @@ sudo yum install tyk-sink
 If you are deploying the Master Data Centre in an *MDCB* deployment then you can set the `mdcb.enabled` option in your `values.yaml` to true to add the MDCB component to your cluster.
 
 This enables multi-cluster, multi Data-Centre API management from a single Dashboard.
-
-{{< note success >}}
-**Note**  
-
-The Tyk owned MDCB registry is private and requires adding users to our organisation which you then define as a secret when pulling the MDCB image. Please contact your account manager to arrange this.
-{{< /note >}}
 
 ## Configuration
 

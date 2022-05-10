@@ -92,7 +92,7 @@ PATH2: (.*)
 }
 ```
 
-Each version of your API should be defined here with a unique name. This name is what will be matched by `definition.key`. Once Tyk has identified the API to load, and has allowed the access key through, it will check the access token's session data for access permissions. If it finds none, it will let the token through. However, if there are permissions and versions defined, it will be strict in **only** allowing access to that version. For more information about handling access control, see the [Security - Authentication & Authorization](/docs/basic-config-and-security/security/authentication-authorization/) section.
+Each version of your API should be defined here with a unique name. This name is what will be matched by `definition.key`. Once Tyk has identified the API to load, and has allowed the access key through, it will check the access token's session data for access permissions. If it finds none, it will let the token through. However, if there are permissions and versions defined, it will be strict in **only** allowing access to that version. For more information about handling access control, see the [Security - Authentication and Authorization](/docs/basic-config-and-security/security/authentication-authorization/) section.
 
 * `version_data.{version-name}.expires`: The expires header, if set, will deprecate access to the API after the time specified. The entry here takes the form of: `"YYYY-MM-DD HH:MM"`. If this is not set the version will never expire.
 * `version_data.{version-name}.override_target`: Setting this value will override the target of the API for this version, overriding the target will invalidate (and is not compatible with) Round Robin Load balancing and Service Discovery.
@@ -307,7 +307,7 @@ A sample entry would be:
 ], ...
 ```
 
-* `version_data.{version-name}.extended_paths.transform` and `version_data.{version-name}.extended_paths.transform_response`: This section determines which paths are to have a template applied to them in order to transform the body data in the request or response to another structure. Currently on JSON body data is supported as an input. However, the template can output to any format, as it uses Golang templates so structure of outbound data is highly configurable.
+* `version_data.{version-name}.extended_paths.transform` and `version_data.{version-name}.extended_paths.transform_response`: This section determines which paths are to have a template applied to them in order to transform the body data in the request or response to another structure. Currently only JSON body data is supported as an input. However, the template can output to any format, as it uses Golang templates so structure of outbound data is highly configurable.
 
 ```{.copyWrapper}
 ...
