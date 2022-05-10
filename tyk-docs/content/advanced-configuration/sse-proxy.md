@@ -14,30 +14,30 @@ weight: 6
 
 Tyk Gateway supports SSE proxying over HTTP, enabling a client to receive a stream of updates from a server over a long running HTTP connection.
 
-### Prerequisites
-- Enable SSE support on the Gateway by setting `http_server_options.enable_websockets` to true in your Gateway config file.
-- Set `http_server_options.read_timeout` and `http_server_options.write_timeout` to appropriately high values to prevent the connection between the User and the Gateway from being closed prematurely.  By way of example you could try setting both to `2000`, but this is for you to determine in your environment.
+### Setup
+- Enable SSE support on the Gateway: Set `http_server_options.enable_websockets` to `true` in your Tyk Gateway config file.
+- To maintain an open connection between the API consumer and the Tyk Gateway, set `http_server_options.read_timeout` and `http_server_options.write_timeout` to appropriately high values (in milliseconds). For example, you could try setting both to `2000`, but this is for you to determine in your environment.
 - Set `http_server_options.flush_interval` to an appropriate value, e.g. `1`, to force Tyk to stream the response to the client every `n` seconds.
 
 
 ### Example using Tyk as an SSE proxy
 For this we will need:
 
-* An SSE server.  For this example we will use [this server](https://github.com/kljensen/golang-html5-sse-example)
-* An instance of Tyk Gateway and optionally Tyk Dashboard
+* An SSE server.  For this example we will use [Golang HTML 5 SSE example](https://github.com/kljensen/golang-html5-sse-example)
+* An instance of the Tyk Gateway and optionally the Tyk Dashboard
 
 #### Steps:
-* Ensure the Gateway configuration options detailed in the prerequisites have been set.
-* Run the SSE server as per the example instructions.  By default this runs on port `8000`.
+* Ensure the Gateway configuration options detailed in the prerequisites are set.
+* Run the SSE server as per the example instructions. By default this runs on port `8000`.
 ```
 go run ./server.go
 ```
 * Publish an API with the following configuration:
-    * Set an appropriate listen path: e.g. `/sse`
-    * Strip the listen path
-    * Now set the `target_url` to be the example SSE server: `<host>:8000`, e.g. `http://host.docker.internal:8000`
-    * Hit save, and once the Gateway finishes reloading we can test the solution
-* From the command line we can consume the service via tyk gateway using `curl`. Simply type `curl http://localhost:8080/sse/events/` and we should see a stream of updates from the server, similar to the following
+    1. Set an appropriate listen path: e.g. `/sse`
+    2. Strip the listen path
+    3. Now set the `target_url` to be the example SSE server: `<host>:8000`, e.g. `http://host.docker.internal:8000`
+    4. Click Save, and wait for the Gateway to reload the API before testing it
+* To test the protected SSE service via the API in the Tyk Gateway run curl http://localhost:8080/sse/events/ and you will see a stream of updates from the server. In this example, you should see:
 
 ```
 Message: 20 - the time is 2013-03-08 21:08:01.260967 -0500 EST
