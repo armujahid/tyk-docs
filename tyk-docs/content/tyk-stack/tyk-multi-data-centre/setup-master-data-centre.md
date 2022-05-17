@@ -103,7 +103,7 @@ Once installed, modify your `/opt/tyk-sink/tyk_sink.conf` file as follows:
 
 From MDCB 2.0+, you can choose between Mongo or SQL databases to setup your `analytics` storage. In order to setup you SQL storage, you can use the same configuration from your [dashboard main storage](/planning-for-production/database-settings/sql). 
 
-For example, to set up an postgres storage the analytics configurations would be:
+For example, to set up a `postgres` storage the `analytics` configurations would be:
 
 ```
 {
