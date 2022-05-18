@@ -25,7 +25,7 @@ Now that you have created the new Tyk Cloud account with your basic details, it 
 {{< note success >}}
 **Note**
   
-Tyk Cloud can currently be deployed across 2 AWS regions in the USA plus UK, Germany and Singapore. If you have any concerns about Brexit impacting the way you store data you should read [AWS's regularly updated Brexit statement](https://aws.amazon.com/compliance/gdpr-center/brexit/).
+Tyk Cloud can currently be deployed across 2 AWS regions in the USA plus UK, Germany and Singapore. If you have any concerns about Brexit impacting the way you store data you should read [AWS regularly updated Brexit statement](https://aws.amazon.com/compliance/gdpr-center/brexit/).
 {{< /note >}}
 
 ## Types of Setups
