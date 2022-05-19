@@ -18,7 +18,7 @@ Following organisation setup, you will have to set up your team(s) on Tyk Cloud.
 ## What is a team?
 
 * A team is a sub-grouping inside an organisation. 
-* Inside a team, you can define users(team members) and roles(permissions that can be applied to a user or a team of users)
+* Inside a team, you can define users(team members) and roles(permissions that can be applied to a user or a team of users).
 
 ## Steps to set up your team
 
