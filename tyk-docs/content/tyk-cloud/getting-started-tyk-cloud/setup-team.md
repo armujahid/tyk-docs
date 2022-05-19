@@ -32,8 +32,8 @@ After creating your Organisation you'll land on the success screen. Click **Get 
 
 Out of the box, the following roles are setup:
 
-* **Team member**. They can manage deployment activity for the team they are added to.
-* **Team admin**. They can manage deployment activity and users for the team they are added to.
-* **Organisation admin**. They can manage deployment activity and users for a single organisation.
+* **Team member:** They can manage deployment activity for the team they are added to.
+* **Team admin:** They can manage deployment activity and users for the team they are added to.
+* **Organisation admin:** They can manage deployment activity and users for a single organisation.
 
 Next you'll create an [Environment](https://tyk.io/docs/tyk-cloud/getting-started-tyk-cloud/setup-environment/).
