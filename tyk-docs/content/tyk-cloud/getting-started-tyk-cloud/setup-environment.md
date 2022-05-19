@@ -15,10 +15,6 @@ aliases:
 
 An Environment allows you to group deployments together. In this step we will create an Environment and configure our first Control Plane and Edge Gateway deployments.
 
-Here's a video on how to set up your Tyk Cloud Environment.
-
-{{< youtube DxoLm0vgsP8 >}}
-
 ## What is an environment?
 
 An environment is a grouping of ‘deployments’ that can have multiple Control Planes and Edge Gateways.
@@ -41,5 +37,9 @@ You need to have at least one Edge Gateway with a *Deployed* status connected to
 2. From your Control Plane overview you will see the Edge Gateway is in a **Not Deployed** state. Click on your Edge Gateway to open its overview.
 3. In the top right of your Edge Gateway overview, click **Not Deployed** and choose **Deploy** from the drop-down.
 4. With your Edge Gateway successfully deployed, make a note of the tags assigned to your Edge Gateway. One tag is "edge" and the other is the location of your Edge Gateway. You'll add a tag when creating your API.
+
+Here's a video on how to set up your Tyk Cloud Environment.
+
+{{< youtube DxoLm0vgsP8 >}}
 
 Next you'll [set up your first API](https://tyk.io/docs/tyk-cloud/getting-started-tyk-cloud/first-api/) from the Tyk Dashboard.
