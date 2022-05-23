@@ -22,7 +22,9 @@ An environment is a grouping of ‘deployments’ that can have multiple Control
 ## Steps to set up your environment
 
 * **Step 1 - Name your Environment:** Give your [Environment](/docs/tyk-cloud/troubleshooting-support/glossary/#environment) a name. You may find it useful to reflect the names used within your organisation such as Development, Production etc.
+  
 * **Step 2 - Name your Control Plane:** Give your [Control Plane](/docs/tyk-cloud/troubleshooting-support/glossary/#control-plane) a name. Again, this is up to you and you may already have an infrastructure you want to re-create in Tyk Cloud.
+  
 * **Step 3 - Configure your first Edge Gateway:** Select the region you want to locate your [Edge Gateway](/docs/tyk-cloud/troubleshooting-support/glossary/#edge) in from the drop-down list. Your Edge Gateway is not confined to the same region as your Organisation and Control Plane but the amount of regions you have to choose from can be limited depending on your subscription plan. Give your Edge Gateway a name. 
 
 {{< note success >}}
