@@ -33,7 +33,11 @@ For this release of Tyk Cloud, you need to enter your AWS Region manually.
 
 ## AWS IAM Policy
 
-We have included a sample IAM policy that you need to create in AWS to allow the plugin bundle to work. For more information on creating IAM policies, see the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html).
+### What is an IAM Policy?
+
+- A policy is an entity that, when attached to an identity or resource, defines their permissions. IAM policies define permissions for an action regardless of the method that you use to perform the operation.
+
+- We have included a sample IAM policy that you need to create in AWS to allow the plugin bundle to work. For more information on creating IAM policies, see the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html).
 
 {{< warning success >}}
 **Warning**
@@ -70,4 +74,4 @@ We recommend you restrict your IAM user as much as possible before sharing the c
 }
 ```
 
-Next you'll set up the Python authentication code bundle.
+Next you'll [set up the Python authentication code bundle](https://tyk.io/docs/tyk-cloud/configuration-options/using-plugins/python-code-bundle/).
