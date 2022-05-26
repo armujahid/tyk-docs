@@ -55,13 +55,18 @@ The Tyk Identity Broker (TIB) is configured through two files: The configuration
 }
 ```
 
+### Omitting the configuration file
+
+Since TIB 1.3.1, you can configure an environment variable to omit the configuration file with the `TYK_IB_OMITCONFIGFILE` variable.
+This is specially useful when using Docker. Hence it will load the configurations via env vars and those not found will fall back to the default value.
+
 The various options for `tib.conf` file are:
 
 ### secret
 
 The REST API secret to configure the Tyk Identity Broker remotely.
 
-(env var:**TYK_TIB_SECRET**)
+(env var:**TYK_IB_SECRET**)
 
 ### ProfileDir
 
@@ -73,19 +78,19 @@ Directory where the backup files will be stored. Backups files are created each 
 
 Set this to `true` to turn on SSL for the server, this is **highly recommended**.
 
-(env var:**TYK_TIB_HTTPSERVEROPTIONS_USESSL**)
+(env var:**TYK_IB_HTTPSERVEROPTIONS_USESSL**)
 
 ### HttpServerOptions.KeyFile
 
 The path to the key file for this server, required for SSL.
 
-(env var:**TYK_TIB_HTTPSERVEROPTIONS_KEYFILE**)
+(env var:**TYK_IB_HTTPSERVEROPTIONS_KEYFILE**)
 
 ### HttpServerOptions.CertFile
 
 The path to the certificate file for this server, required for SSL.
 
-(env var:**TYK_TIB_HTTPSERVEROPTIONS_CERTFILE**)
+(env var:**TYK_IB_HTTPSERVEROPTIONS_CERTFILE**)
 
 ### BackEnd
 
@@ -99,30 +104,30 @@ Since profiles are unlikely to change often, profiles are kept in-memory, but ca
 
 If you are using multiple databases (not supported in Redis cluster), let TIB know which DB to use for Identity caching.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_DATABASE**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_DATABASE**)
 
 ### BackEnd.IdentityBackendSettings.Username
 
 The username for Redis AUTH, if used (recommended).
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_USERNAME**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_USERNAME**)
 
 ### BackEnd.IdentityBackendSettings.Password
 
 The password for your Redis AUTH Username.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_PASSWORD**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_PASSWORD**)
 
 ### BackEnd.IdentityBackendSettings.Hosts
 
 Add your Redis hosts here as a map of hostname:port. Since TIB uses the same cluster driver as Tyk, it is possible to have TIB interact with your existing Redis cluster if you enable it.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS**)
 
 {{< note success >}}
 **Note**  
 
-To set this value via env var you must follow the declaration syntax like `export TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS="host1:port,host2:port`"
+To set this value via env var you must follow the declaration syntax like `export TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS="host1:port,host2:port`"
 
 {{< /note >}}
 
@@ -130,13 +135,13 @@ To set this value via env var you must follow the declaration syntax like `expor
 
 Max idle connections to Redis.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_MAXIDLE**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_MAXIDLE**)
 
 ### BackEnd.IdentityBackendSettings.MaxActive
 
 Max active Redis connections.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_MAXACTIVE**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_MAXACTIVE**)
 
 ### BackEnd.IdentityBackendSettings.EnableCluster
 
@@ -148,7 +153,7 @@ If you are using Redis cluster, enable it here to enable the slots mode.
 
 If you are using a TLS protected Redis enable to connect.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_USESSL**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_USESSL**)
 
 {{< note success >}}
 **Note**  
@@ -160,7 +165,7 @@ This option is available from TIB v0.4.0
 
 Allows usage of self-signed certificates when connecting to an encrypted Redis database.
 
-(env var:**TYK_TIB_BACKEND_IDENTITYBACKENDSETTINGS_SSLINSECURESKIPVERIFY**)
+(env var:**TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_SSLINSECURESKIPVERIFY**)
 
 {{< note success >}}
 **Note**  
@@ -173,19 +178,19 @@ This option is available from TIB v0.4.0
 
 This section enables you to configure the API credentials for the various Tyk Components TIB is interacting with.
 
-(env var:**TYK_TIB_TYKAPISETTINGS**)
+(env var:**TYK_IB_TYKAPISETTINGS**)
 
 ### TykAPISettings.GatewayConfig.Endpoint
 
 The hostname of the Tyk Gateway (this is for token generation purposes).
 
-(env var:**TYK_TIB_TYKAPISETTINGS_GATEWAYCONFIG_ENDPOINT**)
+(env var:**TYK_IB_TYKAPISETTINGS_GATEWAYCONFIG_ENDPOINT**)
 
 ### TykAPISettings.GatewayConfig.Port
 
 The port to use on the Tyk Gateway host.
 
-(env var:**TYK_TIB_TYKAPISETTINGS_GATEWAYCONFIG_PORT**)
+(env var:**TYK_IB_TYKAPISETTINGS_GATEWAYCONFIG_PORT**)
 
 {{< note success >}}
 **Note**  
@@ -198,22 +203,24 @@ For HTTP or HTTPS endpoints, you do need need to specify the default ports (80 a
 
 The API secret for the Tyk Gateway REST API.
 
-(env var:**TYK_TIB_TYKAPISETTINGS_GATEWAYCONFIG_ADMINSECRET**)
+(env var:**TYK_IB_TYKAPISETTINGS_GATEWAYCONFIG_ADMINSECRET**)
 
 ### TykAPISettings.DashboardConfig.Endpoint
 
 The hostname of your Dashboard (Advanced API).
 
-(env var:**TYK_TIB_TYKAPISETTINGS_DASHBOARDCONFIG_ENDPOINT**)
+(env var:**TYK_IB_TYKAPISETTINGS_DASHBOARDCONFIG_ENDPOINT**)
 
 ### TykAPISettings.DashboardConfig.Port
 
 The port of your Advanced API.
 
-(env var:**TYK_TIB_TYKAPISETTINGS_DASHBOARDCONFIG_PORT**)
+(env var:**TYK_IB_TYKAPISETTINGS_DASHBOARDCONFIG_PORT**)
 
 ### TykAPISettings.DashboardConfig.AdminSecret
 
 The high-level secret for the Advanced API. This is required because of the SSO-nature of some of the actions provided by TIB, it requires the capability to access a special SSO endpoint in the Advanced API to create one-time tokens for access.
 
-(env var:**TYK_TIB_TYKAPISETTINGS_DASHBOARDCONFIG_ADMINSECRET**)
+(env var:**TYK_IB_TYKAPISETTINGS_DASHBOARDCONFIG_ADMINSECRET**)
+
+
