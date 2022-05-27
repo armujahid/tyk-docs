@@ -57,8 +57,10 @@ The Tyk Identity Broker (TIB) is configured through two files: The configuration
 
 ### Omitting the configuration file
 
-Since TIB 1.3.1, you can configure an environment variable to omit the configuration file with the `TYK_IB_OMITCONFIGFILE` variable.
-This is specially useful when using Docker. Hence it will load the configurations via env vars and those not found will fall back to the default value.
+From TIB v1.3.1, the environment variable `TYK_IB_OMITCONFIGFILE` is provided to allow the configuration file to be omitted (ignored) when configuring TIB.
+
+If set to TRUE, then TIB will ignore any provided configuration file and set its parameters according to environment variables. TIB will fall back to the default value for any parameters not set in an environment variable.
+This is particularly useful when using Docker, as this option will ensure that TIB will load the configuration via env vars and not expect a configuration file.
 
 The various options for `tib.conf` file are:
 
@@ -127,7 +129,7 @@ Add your Redis hosts here as a map of hostname:port. Since TIB uses the same clu
 {{< note success >}}
 **Note**  
 
-To set this value via env var you must follow the declaration syntax like `export TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS="host1:port,host2:port`"
+To set this value via env var you must follow the declaration syntax `export TYK_IB_BACKEND_IDENTITYBACKENDSETTINGS_HOSTS="host1:port,host2:port"`
 
 {{< /note >}}
 
