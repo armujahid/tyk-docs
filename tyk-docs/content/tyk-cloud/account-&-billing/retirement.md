@@ -19,7 +19,7 @@ Your plan will go into [retirement](/docs/tyk-cloud/troubleshooting-support/glos
 
 * Your subscription is manually cancelled by a Billing Admin.
 * Your periodic subscription payment fails.
-* You are on a Free Trial (14 days) and have not signed up to a plan before the expiration of the Free Trial.
+* You are on a Free Trial (5 weeks) and have not signed up to a plan before the expiration of the Free Trial.
 
 ## What does retirement mean?
 
