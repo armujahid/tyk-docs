@@ -47,14 +47,14 @@ The following table shows the scope for each user role.
 | Create new environments                           |               | X         | X          |              |
 | Delete / change environments                      |               | X         | X          |              |
 | View environments                                 |               | X         | X          | X            |
-| Create and delete deployments                     |               | X         | X          |              |
+| Create and delete edge gateways                     |               | X         | X          |              |
 | View deployments                                  |               | X         | X          | X            |
 | Deploy, undeploy, redeploy, restart a deployment. |               | X         | X          | X            |
 | Create and manage basic SSO                       |               | X         | X          |              |
 | Upload plugins to the File Server                          |               | X         | X          | X            |
 | Delete plugins from File Server                        |               | X         | X          | X            |
 | Viewing Analytics                                 |               | X         | X          | X            |
-
+| Create and delete control planes                     |               | X         | X          | X            |
 ## Initial Tyk Cloud Account Roles
 
 The user who signs up for the initial Tyk Cloud account is uniquely assigned to two roles:
