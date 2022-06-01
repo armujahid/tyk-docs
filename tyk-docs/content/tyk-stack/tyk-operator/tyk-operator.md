@@ -25,7 +25,7 @@ Tyk Operator works with the v3+ Open Source Tyk Gateway, our full self-managed G
 
 _Currently Operator only works with Tyk PRO Dashboard for this feature. Support for OSS on Security Policies will be added in future Tyk Operator releases._
 
-** What are the Tyk Operator benefits?
+## What are the Tyk Operator benefits?
 
 You can get the benefits of GitOps with declarative API configurations:
 
