@@ -87,3 +87,169 @@ kubectl port-forward service/gateway-svc-tyk-ce-tyk-headless -n <TYK_CE_NAMESPAC
 The Tyk Gateway is accessible from your local cluster's 8080 port (e.g., `localhost:8080`).
 Since Tyk Open Source does not come with the Dashboard, you can list APIs using the Tyk Gateway API by running the following command:
 
+```
+$ curl -H "x-tyk-authorization: {your-secret}" localhost:8080/tyk/apis/
+```
+
+Your Tyk Gateway API secret is stored in your `tyk.conf` file. The property is called `secret`. You will need to use this as a header called `x-tyk-authorization` to make calls to the Gateway API.
+You can make a request to verify that your API is working:
+
+```
+$ curl -i localhost:8080/httpbin/get
+{
+  "args": {},
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.77.0",
+    "X-Amzn-Trace-Id": "Root=1-62161e8c-2a1ece436633f2e42129be2a"
+  },
+  "origin": "127.0.0.1, 176.88.45.17",
+  "url": "http://httpbin.org/get"
+}
+```
+
+### Tyk Self Managed
+
+The example of port forwarding for Tyk Self Managed will be explained in the following paragraph.
+If you have installed Tyk Self Managed in the `<TYK_PRO_NAMESPACE>` namespace, you will have the following services:
+
+```
+kubectl get svc -n <TYK_PRO_NAMESPACE>
+NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+dashboard-svc-tyk-pro   NodePort    10.96.152.180   <none>        3000:30357/TCP   2d17h
+gateway-svc-tyk-pro     NodePort    10.96.228.133   <none>        8080:31516/TCP   2d17h
+mongo                   ClusterIP   10.96.12.192    <none>        27017/TCP        2d17h
+redis                   ClusterIP   10.96.66.91     <none>        6379/TCP         2d17h
+```
+
+To access the Dashboard, you can use the following port-forwarding command:
+
+```
+kubectl port-forward service/dashboard-svc-tyk-pro 3000:3000 -n TYK_PRO_NAMESPACE
+```
+
+The Dashboard is accessible from your local cluster's 3000 port (e.g., `localhost:3000`).
+If you head over to the Dashboard, you can see that an ApiDefinition called `httpbin` is created.
+
+You can make a request to verify that your API is working:
+
+```
+$ curl -i localhost:8080/httpbin/get
+{
+  "args": {},
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.77.0",
+    "X-Amzn-Trace-Id": "Root=1-62161e8c-2a1ece436633f2e42129be2a"
+  },
+  "origin": "127.0.0.1, 176.88.45.17",
+  "url": "http://httpbin.org/get"
+}
+```
+
+### Kubernetes service as an upstream target
+
+Tyk Operator allows accessing your Kubernetes service as an upstream proxy target.
+You can set the `proxy.target_url` as a Kubernetes Service following DNS for Services and Pods guideline, so that the requests will be proxied to your service.
+In general, Kubernetes Services have a `<service-name>.<namespace-name>`.svc.cluster.local DNS entry once they are created.
+For example, if you have a service called `httpbin` in `default` namespace, you can contact `httpbin` service with `httpbin.default.svc` DNS record in the cluster, instead of IP addresses.
+Please visit the official Kubernetes documentation for more details.
+Suppose you want to create a Deployment of `httpbin` service using `ci/upstreams/httpbin.yaml` file. You are going to expose the application through port `8000` as described under the Service specification.
+You can create Service and Deployment by either applying the manifest defined in our repository:
+```
+kubectl apply -f ci/upstreams/httpbin.yaml
+```
+
+Or, if you don’t have the manifest with you, you can run the following command:
+
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin
+  labels:
+    app: httpbin
+spec:
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 80
+  selector:
+    app: httpbin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpbin
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: httpbin
+        version: v1
+    spec:
+      containers:
+        - image: docker.io/kennethreitz/httpbin
+          imagePullPolicy: IfNotPresent
+          name: httpbin
+          ports:
+            - containerPort: 80
+EOF
+```
+
+You need to wait while until all pods reach READY `1/1` and STATUS `Running` state.
+Once the pod is ready, you can update your `httpbin` API's `target_url` field to proxy your requests to the Service that you created above.
+You can check all services in the `<ns>` namespace as follows:
+
+```
+kubectl get service -n <ns>
+```
+
+You can update your `httpbin` as follows:
+
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: tyk.tyk.io/v1alpha1
+kind: ApiDefinition
+metadata:
+  name: httpbin
+spec:
+  name: httpbin
+  use_keyless: true
+  protocol: http
+  active: true
+  proxy:
+    target_url: http://httpbin.default.svc:8000
+    listen_path: /httpbin
+    strip_listen_path: true
+```
+
+You need to pay attention to the value of the `spec.proxy.target_url` field.
+It is set to `http://httpbin.default.svc:8000` by following the convention described above (`<service_name>.<namespace>.svc:<service_port>`).
+Now, if you send your request to the `/httpbin` endpoint of the Tyk Gateway, the request will be proxied to the `httpbin Service`:
+
+```
+curl -sS http://localhost:8080/httpbin/headers
+{
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip", 
+    "Host": "httpbin.default.svc:8000", 
+    "User-Agent": "curl/7.68.0"
+  }
+}
+```
+
+As you can see from the response, the host that your request should be proxied to is `httpbin.default.svc:8000`.
+
+
