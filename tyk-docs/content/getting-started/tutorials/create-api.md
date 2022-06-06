@@ -61,7 +61,8 @@ With Tyk On-Premises Community Edition, it is possible to create APIs using Tyk'
 
 {{< note success >}}
 **Note**
-  A generated API ID will be added to Tyk API definition if it's not provided while creating an API with Tyk Gateway API.
+
+A generated API ID will be added to Tyk API definition if it's not provided while creating an API with Tyk Gateway API.
 {{< /note >}}
 
 See our video for adding an API to the Open Source Gateway via the Gateway API and Postman:
