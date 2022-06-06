@@ -138,6 +138,13 @@ This command will hot-reload your API Gateway(s) and the new API will be loaded,
 
 ## Tutorial: Create an API in File-based Mode
 
+{{< note success >}}
+**Note**
+
+APIs created without API ID in file based mode are invalid.
+{{< /note >}}
+
+
 To create a file-based API definition is very easy.
 
 Create a file called `api1.json` and place it in the `/apps` folder of your Tyk Gateway installation (usually in `/var/tyk-gateway`), then add the following:
