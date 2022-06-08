@@ -94,5 +94,11 @@ As you can see above, you just need to reference the name of the apiDescription.
 
 After all finished, if you go to the default TykPortal implementation (generally located at tyk-portal.local), you should see something like this in the API Catalogue section:
 
+![Tyk Operator](/docs/img/2.10/tyk_operator0.png)
+
+
+
 If you click on View documentation, you should have:
+
+![Tyk Operator](/docs/img/2.10/tyk_operator1.png)
 

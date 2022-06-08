@@ -17,7 +17,7 @@ The steps to create an API are as follows:
 2. Create a Kubernetes resource based on your YAML file.
 3. Tyk Operator can handle the creation of your API.
 
-We are going to create an ApiDefinition described in the httpbin.yaml file, by running the  following command:
+We are going to create an ApiDefinition described in the [httpbin.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/config/samples/httpbin.yaml) file, by running the  following command:
 
 ```
 kubectl apply -f config/samples/httpbin.yaml
@@ -42,7 +42,7 @@ spec:
         strip_listen_path: true
 ```
 
-We can walk you through the ApiDefinition that we created. We have an ApiDefinition called `httpbin`, as specified in a `spec.name` field, which listens to `/httpbin` and proxies requests to http://httpbin.org, as it's specified under a `spec.proxy` field. Now, any requests coming to the `/httpbin` endpoint will be proxied to the target URL that we defined in `spec.proxy.target_url`, which is http://httpbin.org in our example.
+We can walk you through the ApiDefinition that we created. We have an ApiDefinition called `httpbin`, as specified in a `spec.name` field, which listens to `/httpbin` and proxies requests to [http://httpbin.org](http://httpbin.org), as it's specified under a `spec.proxy` field. Now, any requests coming to the `/httpbin` endpoint will be proxied to the target URL that we defined in `spec.proxy.target_url`, which is [http://httpbin.org](http://httpbin.org) in our example.
 
 To find out about available ApiDefinition objects in your cluster, you need to run the following command:
 
@@ -58,13 +58,13 @@ We can see that our ApiDefinition has been created. Now let's verify that our AP
 **Note**  
 
 The verification step may vary based on your environment, such as the type of your Tyk installation and Kubernetes cluster.
-- If you are using local Kubernetes cluster such as KinD and Minikube,
+- If you are using local Kubernetes cluster such as [KinD](https://kind.sigs.k8s.io/) and [Minikube](https://minikube.sigs.k8s.io/docs/start/),
 you can do port-forwarding to access resources/services within the cluster.
 - If you are using Kubernetes clusters provided by cloud providers, you need to configure your cluster to make it accessible.
 
 {{< /note >}}
 
-For the scope of this example, we are using a local Kubernetes cluster. Port-forwarding details can be found in the official Kubernetes documentation.
+For the scope of this example, we are using a local Kubernetes cluster. Port-forwarding details can be found in the official [Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
 
 ### Tyk Open Source
 
@@ -85,7 +85,7 @@ kubectl port-forward service/gateway-svc-tyk-ce-tyk-headless -n <TYK_CE_NAMESPAC
 ```
 
 The Tyk Gateway is accessible from your local cluster's 8080 port (e.g., `localhost:8080`).
-Since Tyk Open Source does not come with the Dashboard, you can list APIs using the Tyk Gateway API by running the following command:
+Since Tyk Open Source does not come with the Dashboard, you can list APIs using the [Tyk Gateway API](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) by running the following command:
 
 ```
 $ curl -H "x-tyk-authorization: {your-secret}" localhost:8080/tyk/apis/
@@ -154,11 +154,11 @@ $ curl -i localhost:8080/httpbin/get
 ### Kubernetes service as an upstream target
 
 Tyk Operator allows accessing your Kubernetes service as an upstream proxy target.
-You can set the `proxy.target_url` as a Kubernetes Service following DNS for Services and Pods guideline, so that the requests will be proxied to your service.
+You can set the `proxy.target_url` as a Kubernetes Service following [DNS for Services and Pods guideline](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/), so that the requests will be proxied to your service.
 In general, Kubernetes Services have a `<service-name>.<namespace-name>`.svc.cluster.local DNS entry once they are created.
 For example, if you have a service called `httpbin` in `default` namespace, you can contact `httpbin` service with `httpbin.default.svc` DNS record in the cluster, instead of IP addresses.
-Please visit the official Kubernetes documentation for more details.
-Suppose you want to create a Deployment of `httpbin` service using `ci/upstreams/httpbin.yaml` file. You are going to expose the application through port `8000` as described under the Service specification.
+Please visit the official [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more details.
+Suppose you want to create a Deployment of [`httpbin`](https://hub.docker.com/r/kennethreitz/httpbin/) service using [`ci/upstreams/httpbin.yaml`](https://github.com/TykTechnologies/tyk-operator/blob/master/ci/upstreams/httpbin.yaml) file. You are going to expose the application through port `8000` as described under the Service [specification](https://github.com/TykTechnologies/tyk-operator/blob/master/ci/upstreams/httpbin.yaml#L10).
 You can create Service and Deployment by either applying the manifest defined in our repository:
 ```
 kubectl apply -f ci/upstreams/httpbin.yaml

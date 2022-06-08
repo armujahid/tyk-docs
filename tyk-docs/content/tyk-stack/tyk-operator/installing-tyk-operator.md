@@ -23,7 +23,7 @@ Tyk Operator supports any Tyk installation whether it is on Tyk Cloud, Hybrid, o
 
 ### Configuring Tyk
 
-We assume you have already installed Tyk. If you don’t have it, check this page. Tyk Helm Chart is the preferred (and easiest) way to install Tyk on Kubernetes.
+We assume you have already installed Tyk. If you don’t have it, check [this](https://tyk.io/docs/getting-started/installation/) page. Tyk Helm Chart is the preferred (and easiest) way to install Tyk on Kubernetes.
 
 {{< note success >}}
 **Note**  
@@ -48,12 +48,13 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 ```
 
 Since Tyk Operator supports Kubernetes v1.19+, the minimum cert-manager version you can use is v1.8. 
-If you run into the cert-manager related errors, please ensure that the desired version of Kubernetes version works with the chosen version of cert-manager by checking supported releases page and cert-manager documentation.
+If you run into the cert-manager related errors, please ensure that the desired version of Kubernetes version works with the chosen version of cert-manager by checking [supported releases page](https://cert-manager.io/docs/installation/supported-releases/) and [cert-manager documentation](https://cert-manager.io/docs/installation/supported-releases/).
+
 Please wait for the cert-manager to become available.
 
 ### Configuring Tyk Operator
 
-Tyk Operator configurations are set via K8s secret. The default K8s secret name is `tyk-operator-conf.` You can use a different secret name by setting it at `envFrom` field of `values.yaml`. You can also override the configuration values through environment variables by setting `envVars` field in `values.yaml` when you install Operator through Helm. 
+Tyk Operator configurations are set via K8s secret. The default K8s secret name is `tyk-operator-conf.` You can use a different secret name by setting it at `envFrom` field of [`values.yaml`](https://github.com/TykTechnologies/tyk-operator/blob/master/helm/values.yaml). You can also override the configuration values through environment variables by setting `envVars` field in [`values.yaml`](https://github.com/TykTechnologies/tyk-operator/blob/master/helm/values.yaml) when you install Operator through Helm. 
 
 #### Connecting to your Tyk Gateway or Dashboard
 
@@ -97,12 +98,12 @@ kubectl get secret/tyk-operator-conf -n tyk-operator-system -o json | jq '.data'
 }
 ```
 
-If you use Helm Chart to deploy Tyk Open Source, you can obtain the values for `TYK_AUTH` and `TYK_ORG` from Helm Chart values.yaml:
+If you use Helm Chart to deploy Tyk Open Source, you can obtain the values for `TYK_AUTH` and `TYK_ORG` from Helm Chart [values.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/ci/helm/tyk-headless/values.yaml):
 
 - `TYK_AUTH` corresponds to the value of the `secrets.APISecret`.
 - `TYK_ORG` corresponds to the value of the `secrets.OrgID`.
 
-Therefore, according to this particular values.yaml configuration, if we assume Tyk is deployed to `tykce-control-plane` namespace, the following secret will be created to connect Tyk Operator to Tyk Gateway:
+Therefore, according to this particular [values.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/ci/helm/tyk-headless/values.yaml) configuration, if we assume Tyk is deployed to `tykce-control-plane` namespace, the following secret will be created to connect Tyk Operator to Tyk Gateway:
 
 ```
 kubectl create secret -n tyk-operator-system generic tyk-operator-conf \
@@ -251,6 +252,6 @@ To upgrade helm release, run the following command:
 
 ### Uninstall
 
-If you think we did something wrong, you can create a GitHub issue. We will try to improve your experience and others. To uninstall Tyk Operator, you need to run the following command:
+If you think we did something wrong, you can create a [GitHub issue](https://github.com/TykTechnologies/tyk-operator/issues/new). We will try to improve your experience and others. To uninstall Tyk Operator, you need to run the following command:
 `helm delete tyk-operator -n tyk-operator-system`
  

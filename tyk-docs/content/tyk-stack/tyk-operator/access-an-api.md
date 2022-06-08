@@ -65,7 +65,7 @@ To access `httpbin` API, you need to include a key to the header.
 {{< note success >}}
 **Note**  
 
-All supported authentication types by Tyk Operator are listed here.
+All supported authentication types by Tyk Operator are listed [here](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/api_definitions.md#client-to-gateway-authentication).
 {{< /note >}}
 
 Authentication token is the default one if you have set `use_keyless` to false, you don’t need to specify any other Authentication mode:

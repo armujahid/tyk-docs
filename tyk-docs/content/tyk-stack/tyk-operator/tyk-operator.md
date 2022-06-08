@@ -8,7 +8,7 @@ menu:
 url: "/tyk-operator" 
 ---
 ## What is Tyk Operator?
-With Tyk Operator, you can manage your APIs on Tyk Gateway declaratively using Kubernetes CRD manifests.
+With Tyk Operator, you can manage your APIs on Tyk Gateway declaratively using [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)manifests.
 
 Tyk Operator is an open-source agent deployed to your Kubernetes cluster. It actively detects configuration drift between the API configurations on Gateway (the actual state) and the manifest (the desired state) to reconcile it. Therefore, the manifests become the source of truth for your API configurations.
 
@@ -18,9 +18,9 @@ Tyk Operator works with the v3+ Open Source Tyk Gateway, our full self-managed G
 
 ## What can you do with Tyk Operator?
 
-- Kubernetes Ingress Controller
-- Manage API Definitions
-- Manage Security Policies*
+- [Kubernetes Ingress Controller](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/ingress.md)
+- [Manage API Definitions](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/api_definitions.md)
+- [Manage Security Policies](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/policies.md)
 - Manage Developer Portal 
 
 _Currently Operator only works with Tyk PRO Dashboard for this feature. Support for OSS on Security Policies will be added in future Tyk Operator releases._

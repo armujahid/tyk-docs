@@ -55,4 +55,4 @@ Any keys, policies and analytics linked to this API will continue to operate the
 ### Idempotency
 
 Because of the ability to declaratively define the `api_id`, this gives us the ability to preserve Keys that are tied to APIs or policies which are tied to APIs.
-Read the section on idempotency for more information.
+Read the [section on idempotency](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/concepts.md) for more information.

@@ -96,4 +96,4 @@ Throttling fields:
 - throttle_retry_limit: Total requests retry number.
 
 Now you can create a key by using this security policy to access your API.
-We are continuously adding support for new features which you can track here.
+We are continuously adding support for new features which you can track [here](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/policies.md).
