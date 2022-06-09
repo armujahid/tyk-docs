@@ -7,6 +7,7 @@ menu:
         parent: "Tyk Operator"
 ---
 
+{{< toc >}}
 ## Installing Tyk Operator
 
 ### Prerequisites

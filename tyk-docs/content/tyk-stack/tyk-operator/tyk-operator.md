@@ -7,6 +7,8 @@ menu:
         parent: "Tyk Stack"
 url: "/tyk-operator" 
 ---
+
+{{< toc >}}
 ## What is Tyk Operator?
 With Tyk Operator, you can manage your APIs on Tyk Gateway declaratively using [Kubernetes CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)manifests.
 
