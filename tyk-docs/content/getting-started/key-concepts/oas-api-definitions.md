@@ -1,7 +1,7 @@
 ---
 title: "OAS API definitions"
 date: 2022-06-07
-tags: ["API", "OAS", "Swagger"]
+tags: ["API", "OAS"]
 description: ""
 menu:
   main:
