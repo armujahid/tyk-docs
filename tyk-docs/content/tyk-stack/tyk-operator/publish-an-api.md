@@ -8,7 +8,7 @@ menu:
 ---
 
 {{< toc >}}
-## Publish an API
+
 
 Assuming that you have created the httpbin example API using the steps above, you can easily publish it to your Tyk Portal by applying a few specifications:
 
@@ -16,7 +16,7 @@ Assuming that you have created the httpbin example API using the steps above, yo
 - APIDescription 
 - PortalAPICatalogue 
 
-### 1. Adding a security policy via Tyk Operator
+### Adding a security policy via Tyk Operator
 
 When you publish an API to the Portal, Tyk actually publishes a way for developers to enrol in a policy, not into the API directly. Therefore, you must also apply a SecurityPolicy CRD before proceeding with the publishing.
 
@@ -42,7 +42,7 @@ EOF
 
 The above command will create the most basic security policy possible and attribute it to the httpbin API that was previously created.
 
-### 2. Creating an API description
+### Creating an API description
 
 The portal serves as a visual description of an API. Therefore, you need to let the Tyk Portal know (via Tyk Operator) some details about the API you want to publish.
 
@@ -73,7 +73,7 @@ policyRef:
 
 Furthermore, in the "documentation" field we have the swagger API definition of httpbin encoded in base64. All documentation descriptions need to be encoded base64.
 
-### 3. Publishing the API to the Tyk Portal
+### Publishing the API to the Tyk Portal
 
 For this step all you need to do is to create a PortalAPICatalogue resource that ties everything together. In our case, the command we need to run is:
 

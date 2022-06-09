@@ -8,7 +8,7 @@ menu:
 ---
 
 {{< toc >}}
-## Access an API
+
 
 You might already have realised that our `httpbin` API is keyless. If you check the APIDefinition's specification, the `use_keyless` field is set to `true`.
 Tyk keyless access represents completely open access for your API and causes Tyk to bypass any session-based middleware (middleware that requires access to token-related metadata). Keyless access will enable all requests through.

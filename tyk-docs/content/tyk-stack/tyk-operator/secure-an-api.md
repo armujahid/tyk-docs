@@ -7,7 +7,7 @@ menu:
         parent: "Tyk Operator"
 ---
 
-## Secure an API
+
 
 You can access a secured API by creating a key. A key can be created by specifying security policy. A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk.
 

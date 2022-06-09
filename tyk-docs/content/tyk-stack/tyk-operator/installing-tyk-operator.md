@@ -8,7 +8,7 @@ menu:
 ---
 
 {{< toc >}}
-## Installing Tyk Operator
+
 
 ### Prerequisites
 
