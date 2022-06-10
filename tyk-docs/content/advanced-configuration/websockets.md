@@ -24,24 +24,29 @@ https://target:443/
 
 We are going to set up Tyk with a WebSocket proxy using our [Tyk Pro Docker Demo](https://github.com/TykTechnologies/tyk-pro-docker-demo) installation.
 
-We will be using http://websocket.org/echo.html to test the connection.
+We will be using the [Postman WebSocket Echo Service](https://blog.postman.com/introducing-postman-websocket-echo-service/) to test the connection.
 
 ### Step 1. Setup the API in Tyk
 
 Create a new API in Tyk. For this demo we are going to select Open (Keyless) as the **Authentication mode**.
 
-Set the **Target URL** to `ws://echo.websocket.org`
+Set the **Target URL** to `wss://ws.postman-echo.com/raw`
 
-This gives you a **Gateway URL** of: `http://tyk-test.com:8080/websocket/`
-
-We will change `http` to `ws` in the websocket.org test site.
 
 ### Step 2. Test the Connection
 
-From http://websocket.org/echo.html enter the following in the **Location** field.
+1. From Postman, select **File > New > WebSocket Request**.
 
-`ws://www.tyk-test.com:8080/websocket/`
+{{< img src="/img/dashboard/system-management/postman-websocket-request.png" alt="Postman WebSocket Request" >}}
 
-Enter some text in the **Message** field, and click **Send**. You should see your sent message in the **Log** field.
+2. Enter your Tyk API URL in the **Enter server URL** field (minus the protocol).
+3. Enter some text in the **New Message** field and click **Send**.
+4. You will see a successful connection.
 
-![WebSocket Test](/docs/img/dashboard/system-management/websocket_test.png)
+{{< img src="/img/dashboard/system-management/postman-websocket-test.png" alt="Postman WebSocket Connection Result" >}}
+
+{{< note success >}}
+**Note**  
+
+If your API uses an Authentication mode other than Open (Keyless), add the details in the Header tab. 
+{{< /note >}}
