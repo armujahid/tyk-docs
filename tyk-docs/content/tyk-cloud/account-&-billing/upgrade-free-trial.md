@@ -2,7 +2,7 @@
 title: "Upgrade Free Trial"
 date: 2020-05-23
 tags: ["Tyk Cloud", "Free Trial", "Upgrade"]
-description: "How to upgrade your Tyk Cloud free 14 day trial"
+description: "How to upgrade your Tyk Cloud free 5 week trial"
 menu:
   main:
     parent: "Account and Billing"
@@ -17,7 +17,7 @@ This page explains how you can upgrade your free trial of Tyk Cloud to a full ac
 
 ## My free trial is coming to an end. What are my options?
 
-Every new Tyk Cloud account is assigned to our 14 free trial. You have the following options:
+Every new Tyk Cloud account is assigned to our 5-week free trial. You have the following options:
 
 * Upgrade to a paid plan at any stage of the free trial period.
 * Use the free trial period and upgrade after it expires
