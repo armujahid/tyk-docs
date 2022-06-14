@@ -4,7 +4,7 @@ title: Installing Tyk Operator
 weight: 16
 menu:
     main:
-        parent: "Tyk Operator"
+        parent: "Getting started with Tyk Operator"
 ---
 
 {{< toc >}}
