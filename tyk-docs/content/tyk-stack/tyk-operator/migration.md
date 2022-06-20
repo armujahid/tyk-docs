@@ -9,6 +9,7 @@ menu:
 
 {{< toc >}}
 
+### Introduction
 
 If there are existing APIs that you want to link to a CRD, it's very easy to do so. You need to simply add the `api_id` from your API Definition to the YAML of your `ApiDefinition` type. Then, the Operator will take care of the rest.
 

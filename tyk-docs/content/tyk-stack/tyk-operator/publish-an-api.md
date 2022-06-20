@@ -10,6 +10,8 @@ menu:
 {{< toc >}}
 
 
+### Introduction
+
 Assuming that you have created the httpbin example API using the steps above, you can easily publish it to your Tyk Portal by applying a few specifications:
 
 - SecurityPolicy 

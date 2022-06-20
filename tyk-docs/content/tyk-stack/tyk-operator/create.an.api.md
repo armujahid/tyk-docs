@@ -11,6 +11,7 @@ menu:
 
 
 ### Introduction
+
 Creating an API takes the same approach whether you are using Tyk Open Source or Self Managed. 
 
 The steps to create an API are as follows:
