@@ -35,7 +35,7 @@ Set the **Target URL** to `wss://ws.postman-echo.com/raw`
 
 ### Step 2. Test the Connection
 
-1. From Postman, select **File > New > WebSocket Request**.
+1. From Postman, select **File > New > WebSocket Request** (or from **Workspace > New > WebSocket Request** if using the web based version).
 
 {{< img src="/img/dashboard/system-management/postman-websocket-request.png" alt="Postman WebSocket Request" >}}
 
@@ -50,3 +50,9 @@ Set the **Target URL** to `wss://ws.postman-echo.com/raw`
 
 If your API uses an Authentication mode other than Open (Keyless), add the details in the Header tab. 
 {{< /note >}}
+
+An example Header configuration for using an Authentication Token with an API:
+
+{{< img src="/img/dashboard/system-management/websocket-auth-token.png" alt="Postman WebSocket Connection Result with Authorization token" >}}
+
+See the [Access an API]({{< ref "/content/getting-started/tutorials/create-api-key.md" >}}) tutorial for details on adding an Authentication Token to your APIs.
