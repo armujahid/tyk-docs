@@ -1,7 +1,7 @@
 ---
 date: 2017-03-24T16:39:31Z
 title: Installing Tyk Operator
-weight: 16
+weight: 1
 menu:
     main:
         parent: "Getting started with Tyk Operator"

@@ -1,7 +1,7 @@
 ---
 date: 2017-03-24T16:39:31Z
 title: Publish an API with Tyk Operator
-weight: 16
+weight: 5
 menu:
     main:
         parent: "Getting started with Tyk Operator"
