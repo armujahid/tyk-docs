@@ -7,7 +7,25 @@ menu:
         parent: "Getting started with Tyk Operator"
 ---
 
+{{< toc >}}
 
+### Introduction
+
+A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk.
+
+See [What is a Security Policy?](https://tyk.io/docs/getting-started/key-concepts/what-is-a-security-policy/)
+
+{{< note success >}}
+
+**Note**  
+
+ 
+
+Currently Operator only works with Tyk Dashboard for this feature. Support for Tyk Open Source on Security Policies will be added in future Tyk Operator releases. You can get round this by mounting the policy object as a volume into the gateway container.
+
+{{< /note >}}
+
+### Tutorial: Create a Policy with Tyk Operator
 
 You can access a secured API by creating a key. A key can be created by specifying security policy. A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk.
 

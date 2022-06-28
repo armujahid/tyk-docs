@@ -183,19 +183,23 @@ helm install tyk-operator tyk-helm/tyk-operator -n tyk-operator-system
 
 #### From Tyk Operator repository
 
-You can install CRDs and Tyk Operator by checking out this GitHub repository.
-Installing CRDs is as simple as checking out this repository and running `kubectl apply`:
+You can install CRDs and Tyk Operator by checking out tyk-operator repository.
 
-```
+Run the following command to install the CRDs:
+
+```bash
 kubectl apply -f ./helm/crds
 customresourcedefinition.apiextensions.k8s.io/apidefinitions.tyk.tyk.io configured
+customresourcedefinition.apiextensions.k8s.io/apidescriptions.tyk.tyk.io configured
+customresourcedefinition.apiextensions.k8s.io/operatorcontexts.tyk.tyk.io configured
+customresourcedefinition.apiextensions.k8s.io/portalapicatalogues.tyk.tyk.io configured
+customresourcedefinition.apiextensions.k8s.io/portalconfigs.tyk.tyk.io configured
 customresourcedefinition.apiextensions.k8s.io/securitypolicies.tyk.tyk.io configured
-customresourcedefinition.apiextensions.k8s.io/webhooks.tyk.tyk.io configured
 ```
 
-Run the following command to deploy Tyk Operator:
+Run the following command to install Tyk Operator:
 
-```
+```bash
 $ helm install tyk-operator ./helm -n tyk-operator-system
 
 NAME: tyk-operator
@@ -209,27 +213,35 @@ You have deployed the tyk-operator! See https://github.com/TykTechnologies/tyk-o
 ```
 
 ### Upgrading Tyk Operator
-#### Using Helm
+#### From Tyk official Helm repository
 
 You can upgrade CRDs and Tyk Operator through Helm Chart by running the following command:
 
-```
+```bash
 helm upgrade -n tyk-operator-system tyk-operator tyk-helm/tyk-operator  --wait
 ```
 
 #### From Tyk Operator repository
 
-You need to checkout the tag if you want to upgrade to with running `git checkout tags/{.ReleaseTag}`.For example, if you are on `v0.6.0` and you wish to upgrade to `v0.6.1` , run the following command:
-`git checkout tags/v0.6.1`
+You can install CRDs and Tyk Operator by checking out tyk-operator repository. If there is a specific version you want to upgrade to, you can checkout the tag by running `git checkout tags/{.ReleaseTag}`.
 
 To upgrade CRDs, run the following command:
-`kubectl apply -f ./helm/crds`
+
+```bash
+kubectl apply -f ./helm/crds
+```
 
 To upgrade helm release, run the following command:
-`helm upgrade tyk-operator ./helm -n tyk-operator-system`
+
+```bash
+helm upgrade tyk-operator ./helm -n tyk-operator-system
+```
 
 ### Uninstall
 
 If you think we did something wrong, you can create a [GitHub issue](https://github.com/TykTechnologies/tyk-operator/issues/new). We will try to improve your experience and others. To uninstall Tyk Operator, you need to run the following command:
-`helm delete tyk-operator -n tyk-operator-system`
+
+```bash
+helm delete tyk-operator -n tyk-operator-system
+```
  
