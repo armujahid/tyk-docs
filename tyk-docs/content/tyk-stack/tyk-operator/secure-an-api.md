@@ -27,20 +27,42 @@ Currently Operator only works with Tyk Dashboard for this feature. Support for T
 
 ### Tutorial: Create a Policy with Tyk Operator
 
-You can access a secured API by creating a key. A key can be created by specifying security policy. A security policy encapsulates several options that can be applied to a key. It acts as a template that can override individual sections of an API key (or identity) in Tyk.
+#### Step 1: Create a SecurityPolicy resource in YAML format
 
-If you have issued multiple keys and want to change access rights, rate limits or quotas, you will have to update all the keys manually. Security policy comes handy in this scenario. You just need to update the security policy linked to the keys once.
+Create a file called `ratelimit.yaml`, then add the following:
 
-You can create an API and security policy for that API.
-Security policy resources are currently only supported when using Tyk Pro mode. You can get round this by mounting the policy object as a volume into the gateway container.
+```bash
+apiVersion: tyk.tyk.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: httpbin
+spec:
+  name: Rate Limit, Quota and Throttling policy
+  state: active
+  active: true
+  access_rights_array:
+    - name: httpbin
+      namespace: default
+      versions:
+        - Default
+  quota_max: 10
+  quota_renewal_rate: 60
+  rate: 5
+  per: 5
+  throttle_interval: 2
+  throttle_retry_limit: 2
+```
 
-You can do so either by applying manifest defined in our repository:
+You can link this Security Policy to any APIs you have defined in `access_rights_array`. In this example, the security policy is applied to `httpbin` API in `default` namespace.
+
+#### Step 2: Deploy the SecurityPolicy resource
+You can do so either by applying sample manifests defined in our repository, for example:
 
 `kubectl apply -f docs/policies/ratelimit.yaml`
 
-Or creating it by running the following command:
+Or, if you don’t have the manifest with you, you can run the following command:
 
-```
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: tyk.tyk.io/v1alpha1
 kind: ApiDefinition
@@ -81,22 +103,58 @@ spec:
 EOF
 ```
 
-To ensure policy is created, you can run as follows:
+To check that policy has been created, you can run the following command:
 
-```
+```bash
 $ kubectl get securitypolicy
 NAME      AGE
 httpbin   10s
 ```
 
-You have successfully created the  `httpbin` security policy for your `httpbin` API. A Policy also sets global usage quota, rate limits and throttling.
+You have successfully created the  `httpbin` security policy for your `httpbin` API. 
 
-You can see the fields you have set in the policy:
+### SecurityPolicy CRD
 
-- name: The name of the security policy.
-- active: Marks policy as active.
-- state: It can have value `active, draft,deny`.
-- access_right_array: The list of APIs security policy has access to.
+You can use SecurityPolicy CRD to set access lists for API and versions, global usage quota, rate limits, and throttling, and also add tags and metadata:
+
+```bash
+apiVersion: tyk.tyk.io/v1alpha1
+kind: SecurityPolicy            # SecurityPolicy CRD
+metadata:
+  name: httpbin                 # Unique k8s name
+spec:
+  name: Httpbin Security Policy # Generic Name
+  state: active                 # View securitypolicy_types for more info
+  active: true                  # View securitypolicy_types for more info
+  access_rights_array:          # Adding APIs to the Policy. More info just below
+    - name: httpbin             # Metadata name of API
+      namespace: default
+      versions:
+        - Default               # Mandatory, Default is created automatically
+  quota_max: 10
+  quota_renewal_rate: 60
+  rate: 5
+  per: 5
+  throttle_interval: 2
+  throttle_retry_limit: 2
+  tags:
+    - Hello
+    - World
+  meta_data:
+    key: value
+    hello: world
+```
+
+
+Required fields in the policy:
+
+- `name`: The name of the security policy.
+- `active`: Marks policy as active.
+- `state`: It can have value `active, draft,deny`.
+
+Access lists for API and versions:
+
+- `access_right_array`: The list of APIs security policy has access to.
 
 Usage Quota fields:
 
@@ -105,13 +163,20 @@ Usage Quota fields:
 
 Rate limiting fields:
 
-- rate: The number of the requests to allow per period.
-- per: Time in seconds.
+- `rate`: The number of the requests to allow per period.
+- `per`: Time in seconds.
 
 Throttling fields:
 
-- throttle_interval: Interval (in seconds) between each request retry.
-- throttle_retry_limit: Total requests retry number.
+- `throttle_interval`: Interval (in seconds) between each request retry.
+- `throttle_retry_limit`: Total requests retry number.
 
-Now you can create a key by using this security policy to access your API.
-We are continuously adding support for new features which you can track [here](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/policies.md).
+Tags:
+
+- `tags`: List of tags.
+
+Meta data:
+
+- `meta_data`: Metadata key and values.
+
+You can go to the [Policies](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/policies.md) page on GitHub to see all the latest Security Policies fields and features we support.

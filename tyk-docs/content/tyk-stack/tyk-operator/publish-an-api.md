@@ -12,19 +12,27 @@ menu:
 
 ### Introduction
 
-Assuming that you have created the httpbin example API using the steps above, you can easily publish it to your Tyk Portal by applying a few specifications:
+For Tyk Self Managed or Tyk Cloud, you can set up a Developer Portal to expose a facade of your APIs and then allow third-party developers to register and use your APIs. 
+You can make use of Tyk Operator CRDs to publish the APIs as part of your CI/CD workflow. If you have followed this Getting Started guide to create the httpbin example API, you can publish it to your Tyk Classic Developer Portal in a few steps. 
 
-- SecurityPolicy 
-- APIDescription 
-- PortalAPICatalogue 
+{{< note success >}}
 
-### Adding a security policy via Tyk Operator
+**Note**  
 
-When you publish an API to the Portal, Tyk actually publishes a way for developers to enrol in a policy, not into the API directly. Therefore, you must also apply a SecurityPolicy CRD before proceeding with the publishing.
+ 
+
+Currently Operator only supports publishing API to the Tyk Classic Portal. 
+
+{{< /note >}}
+
+### Tutorial: Publish an API with Tyk Operator
+#### Step 1: Creating a security policy
+
+When you publish an API to the Portal, Tyk actually publishes a way for developers to enrol in a policy, not into the API directly. Therefore, you should first set up a security policy for the developers, before proceeding with the publishing.
 
 To do that, you can use the following command:
 
-```
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: tyk.tyk.io/v1alpha1
 kind: SecurityPolicy
@@ -42,15 +50,39 @@ spec:
 EOF
 ```
 
-The above command will create the most basic security policy possible and attribute it to the httpbin API that was previously created.
+The above command will create a basic security policy and attribute it to the `-httpbin` httpbin API that was previously created.
 
-### Creating an API description
+#### Step 2: Creating an API description
 
-The portal serves as a visual description of an API. Therefore, you need to let the Tyk Portal know (via Tyk Operator) some details about the API you want to publish.
+The Tyk Classic Developer Portal enables you to host your API documentation in Swagger/OpenAPI or API Blueprint for developers to use. In the case of Swagger/OpenAPI, you can either paste your Swagger content (JSON or YAML) in the CRD, or via a link to a public Swagger hosted URL, which can then be rendered by using Swagger UI.
 
-For doing that, we can run the following command:
+Create a file called `apidesc.yaml`, then add the following;
 
+```bash
+apiVersion: tyk.tyk.io/v1alpha1
+kind: APIDescription
+metadata:
+ name: standard-desc
+spec:
+ name: HTTPBIN API
+ policyRef:
+  name: standard-pol
+  namespace: default
+ docs: 
+  doc_type: swagger_customer_url
+  documentation: "https://httpbin.org/spec.json"
+ show: true
+ version: v2 
 ```
+
+#### Step 3: Apply the chnages:
+
+```bash
+kubectl apply -f apidesc.yaml
+```
+Or, if you don’t have the manifest with you, you can run the following command:
+
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: tyk.tyk.io/v1alpha1
 kind: APIDescription
@@ -62,25 +94,20 @@ spec:
   name: standard-pol
   namespace: default
  docs: 
-  doc_type: swagger
-  Documentation: 
+  doc_type: swagger_customer_url
+  documentation: "https://httpbin.org/spec.json"
+ show: true
+ version: v2
+EOF
 ```
 
-As you can see the API description is tied to the SecurityPolicy in the lines:
+#### Creating a PortalAPICatalogue resource
 
-```
-policyRef:
-  name: standard-pol
-```
+Unlike other platforms, Tyk will not auto-publish your APIs to the Portal, instead they are presented as a facade, you choose what APIs and what Policies to expose to the Portal. You can configure what APIs and what Policies to expose to the Portal via Tyk Operator by creating a PortalAPICatalogue resource.
 
-Furthermore, in the "documentation" field we have the swagger API definition of httpbin encoded in base64. All documentation descriptions need to be encoded base64.
+Create a file called api_portal.yaml, then add the following:
 
-### Publishing the API to the Tyk Portal
-
-For this step all you need to do is to create a PortalAPICatalogue resource that ties everything together. In our case, the command we need to run is:
-
-```
-cat <<EOF | kubectl apply -f -
+```bash
 apiVersion: tyk.tyk.io/v1alpha1
 kind: PortalAPICatalogue
 metadata:
@@ -93,15 +120,33 @@ spec:
 EOF
 ```
 
-As you can see above, you just need to reference the name of the apiDescription. Then, Tyk Operator will handle everything for you.
+You have added your API Descriptions under `apis`. 
 
-After all finished, if you go to the default TykPortal implementation (generally located at tyk-portal.local), you should see something like this in the API Catalogue section:
+#### Step 5: Apply the changes:
 
-![Tyk Operator](/docs/img/2.10/tyk_operator0.png)
+```bash
+kubectl apply -f apidesc.yaml
+```
+
+Now your new API and its documentation is loaded to the Developer Portal. 
+
+### APIDescription CRD
+
+Different types of documents are supported Swagger Documents:
+
+- `doc_type`:swagger
+- `documentation`: Base64 encoded  swagger doc
+
+Swagger Hosted URL:
+
+- `doc_type`: swagger_customer_url
+- `documentation`: URL to the swagger documentation
+
+GraphQL:
+
+- `doc_type`: graphql
 
 
 
-If you click on View documentation, you should have:
 
-![Tyk Operator](/docs/img/2.10/tyk_operator1.png)
 
