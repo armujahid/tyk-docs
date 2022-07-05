@@ -34,8 +34,8 @@ The Tyk Enterprise Developer Portal sends notifications for the following events
 | User account is deactivated                    | deactivate.text.tmpl | deactivate.html.tmpl | deactivate.tmpl  |
 
 ## Modification of email templates
-To render an email, the portal uses the email templates that contained inside /mailers directory of your active theme.
-To start modify the templates, as an admin user you need to download and unzip the theme that you want to modify:
+To render an email, the portal uses the email templates that are contained inside `/mailers` directory of your active theme.
+To modify the templates, as an admin user you need to download and unzip the theme that you want to modify:
 1. Navigate to Themes menu;
 2. Download the theme that you want to modify; 
 {{< img src="/img/dashboard/portal-management/enterprise-portal/download-a-theme.png" alt="Download a theme" >}}
