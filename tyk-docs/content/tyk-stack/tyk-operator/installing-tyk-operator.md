@@ -14,7 +14,7 @@ menu:
 
 - Kubernetes v1.19+
 - Kubernetes Cluster Admin rights for installing CustomResourceDefinitions
-- Tyk Gateway or Tyk Dashboard
+- Tyk Gateway or Tyk Dashboard v3+
 
 {{< note success >}}
 **Note**  
@@ -39,6 +39,11 @@ If you are using the Self Managed edition, you need to make sure your Tyk Gatewa
   "allow_explicit_policy_id": true
 },
 ```
+
+For Self Managed / Hybrid edition, you may want to create a user account to be used by Tyk Operator. It should have write access to the resources it is going to manage, e.g. APIs, Certificates, Policies, and Portal.
+
+It is the recommended practice to turn off write access for other users for the above resources. See Using Tyk Operator to enable GitOps with Tyk about maintaining a single source of truth for your API configurations.
+
 
 ### Step 2: Installing cert-manager
 
