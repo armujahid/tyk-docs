@@ -42,8 +42,8 @@ To modify the templates, as an admin user you need to download and unzip the the
 3. Unzip the theme and navigate to the mailers folder;
 {{< img src="/img/dashboard/portal-management/enterprise-portal/mailers-folder.png" alt="Mailers folder" >}}
 4. Inside the mailer folder there are two types of assets: **layouts** and **templates**:
-** The templates define content for a specific email notification;
-** The layouts are responsible for displaying the content of the templates.  
+- The templates define content for a specific email notification;
+- The layouts are responsible for displaying the content of the templates.  
 
 ### Layouts
 There three layouts:
