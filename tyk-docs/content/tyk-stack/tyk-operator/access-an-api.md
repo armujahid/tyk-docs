@@ -16,7 +16,7 @@ You might already have realised that our `httpbin` API is keyless. If you check 
 Tyk keyless access represents completely open access for your API and causes Tyk to bypass any session-based middleware (middleware that requires access to token-related metadata). Keyless access will enable all requests through.
 You can disable keyless access by setting `use_keyless` to false. 
 
-Step 1: Update your `httpbin.yaml` file as follows:
+#### Step 1: Update your `httpbin.yaml` file as follows:
 
 ```bash
 apiVersion: tyk.tyk.io/v1alpha1
@@ -34,7 +34,7 @@ spec:
     strip_listen_path: true
 ```
 
-Step 2: Apply the changes:
+#### Step 2: Apply the changes:
 
 ```bash
 kubectl apply -f httpbin.yaml

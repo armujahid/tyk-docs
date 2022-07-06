@@ -11,11 +11,9 @@ menu:
 
 
 ### Tutorial: Create an API with Tyk Operator
-
 Creating an API takes the same approach whether you are using Tyk Open Source or Self Managed. First, specify the details of your API using the [ApiDefinition CRD](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/api_definitions.md), then deploy it to create corresponding Kubernetes resource. Tyk Operator will take control of the CRD and create the actual API in the Tyk data plane.
 
 #### Step 1: Create an ApiDefinition resource in YAML format
-
 Create a file called `httpbin.yaml`, then add the following:
 
 ```bash
@@ -37,7 +35,6 @@ spec:
 You can also use other sample files from `our repository`.
 
 #### Step 2: Deploy the ApiDefinition resource
-
 We are going to create an ApiDefinition from the [httpbin.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/config/samples/httpbin.yaml) file, by running the  following command:
 
 ```bash
