@@ -33,6 +33,7 @@ In the Tyk Developer Portal a “themes” folder is located in the root of the 
 - Manifest file (`theme.json`): uses JSON syntax to define theme metadata (name, version and author) as well as a list of templates that are part of the theme.
 - `assets`: intended for static assets like CSS, JS or images that are used by the theme. All contents from this directory are mounted under the `/assets` path in the portal HTTP server.
 - `layouts`: the layout is the top level view of your theme.
+- `mailers`: the email templates and layouts.
 - `views`: the view is rendered as part of a layout. Each view can be rendered using a different layout.
 - `partials`: partials provide an easier way to handle snippets of code that are reused across different views or layouts, for example if you want to inject a JS snippet that’s used in different places, you could set this code in a partial and include it anywhere by using the appropriate Go template directive. In this way you could improve code readability and organise the theme in the most efficient way.
 
@@ -131,3 +132,55 @@ This will display as follows in your portal:
 {{< img src="/img/dashboard/portal-management/enterprise-portal/example-portal-content-block.png" alt="Example Portal content block" >}}
 
 In order for a page to render properly the content manager will need to be aware of the content blocks that are required by a particular template.
+
+## Theme management workflow
+The Tyk Enterprise Developer Portal enables admin users and developer to manage theme: create, delete, modify, and select which theme is visible in the portal.
+To enable this capability the portal has theme management UI.
+
+### Part 1 - Create a new theme
+Follow the example below to create a new theme called "TestTheme" using the default theme as a blueprint.
+1. As an admin user navigate to Theme management UI and download the default theme. The Tyk Enterprise Developer Portal doesn't allow modifications to the default theme so that you will always have access to the vanilla theme.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/download-default-theme.png" alt="Download default theme" >}}
+2. Unzip the theme and rename it by modifying the Manifest file as described above in this guide.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/rename-a-theme.png" alt="Rename theme" >}}
+3. You can also modify other assets in the theme as described later in this guide. Once all modifications are done you need to zip the theme and upload it to the portal.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/compress-a-theme.png" alt="Zip theme" >}}
+4. To upload the theme as an admin user navigate to **Themes** and click on the **Add new theme** button.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/add-a-new-theme.png" alt="Add new theme" >}}
+5. Then click on the **Add theme file** button.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/add-theme-file.png" alt="Add theme file" >}}
+6. Select the archive that you've created earlier and click on the **Save** button.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/save-new-theme.png" alt="Save new theme" >}}
+7. Now you should see a success message that means the theme was successfully created.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/new-theme-is-created.png" alt="Theme is created" >}}
+
+###  Part 2 - Preview a theme
+The Tyk Enterprise Developer Portal allows admin users to preview the theme before it gets reflected on the public-facing portal. This allows to review the changes that are made to the theme before exposing them to the developer community.
+1. To preview a theme as an admin user navigate to the **Themes** menu and select a theme, and click on the **Preview** button.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/preview-theme-button.png" alt="Preview theme" >}}
+2. The previewer will open the selected theme in a new tab. Now you can browse you theme and review the changes to it. For the demonstration purposes we've modified the API Catalogue page so it displays "Modified catalogue" instead of "Product Catalogues".
+{{< img src="/img/dashboard/portal-management/enterprise-portal/theme-preview.png" alt="Preview theme" >}}
+3. Once the review is done, you can quit the preview by clicking on the **Quit preview button**.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/quit-theme-preview.png" alt="Quite theme preview" >}}
+
+###  Part 3 - Activate a theme
+The Tyk Enterprise Developer Portal allows you to have multiple themes at the same time but only one of them is active.
+1. As an admin user navigate to the **Themes** menu. The current status of each theme is displayed in the **Status** column.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/default-theme-is-current.png" alt="Default theme is the current theme" >}}
+2. To activate the new theme click on the **Activate** button.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/activate-a-theme.png" alt="Activate theme" >}}
+3. Now the selected theme is active and displayed to all API consumers on the Live portal.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/modified-theme-is-active.png" alt="Modified theme is activated" >}}
+
+### Part 4 - Modify an existing theme (not default)
+The Tyk Enterprise Developer Portal allows modification to any existing theme for except of the default.
+1. To start modification of any existing theme navigate to the **Themes** menu and download the theme package.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/download-a-theme.png" alt="Download existing theme" >}}
+2. Unzip the package, do any required modification and zip it back. You should keep the name of the theme. If you need to change the name of the theme you will need to create a new theme as described above.
+3. As an admin user navigate to the **Themes** menu and select the modified theme.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/select-a-modified-theme.png" alt="Select modified theme" >}}
+4. Click on the **Add Theme File** button and select the theme archive.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/add-theme-file-to-existing-theme.png" alt="Add theme file" >}}
+5. Click on the **Save changes** button to save changes to the theme.
+{{< img src="/img/dashboard/portal-management/enterprise-portal/save-changes-to-theme.png" alt="Save changes" >}}
+6. If the theme is the current the changes to the Live portal will be applied immediately. Otherwise, you can preview and activate the theme as described above.
