@@ -50,7 +50,7 @@ spec:
 EOF
 ```
 
-The above command will create a basic security policy and attribute it to the `-httpbin` httpbin API that was previously created.
+The above command will create a basic security policy and attribute it to the `httpbin` httpbin API that was previously created.
 
 #### Step 2: Creating an API description
 
@@ -75,7 +75,7 @@ spec:
  version: v2 
 ```
 
-#### Step 3: Apply the chnages:
+#### Step 3: Apply the changes
 
 ```bash
 kubectl apply -f apidesc.yaml
@@ -101,11 +101,11 @@ spec:
 EOF
 ```
 
-#### Creating a PortalAPICatalogue resource
+#### Step 4: Creating a PortalAPICatalogue resource
 
 Unlike other platforms, Tyk will not auto-publish your APIs to the Portal, instead they are presented as a facade, you choose what APIs and what Policies to expose to the Portal. You can configure what APIs and what Policies to expose to the Portal via Tyk Operator by creating a PortalAPICatalogue resource.
 
-Create a file called api_portal.yaml, then add the following:
+Create a file called `api_portal.yaml`, then add the following:
 
 ```bash
 apiVersion: tyk.tyk.io/v1alpha1
@@ -117,22 +117,23 @@ spec:
  - apiDescriptionRef:
     name: standard-desc
     namespace: default
-EOF
 ```
 
 You have added your API Descriptions under `apis`. 
 
-#### Step 5: Apply the changes:
+#### Step 5: Apply the changes
 
 ```bash
-kubectl apply -f apidesc.yaml
+kubectl apply -f api_portal.yaml
 ```
 
 Now your new API and its documentation is loaded to the Developer Portal. 
 
 ### APIDescription CRD
 
-Different types of documents are supported Swagger Documents:
+Different types of documents are supported:
+
+Swagger Documents:
 
 - `doc_type`:swagger
 - `documentation`: Base64 encoded  swagger doc

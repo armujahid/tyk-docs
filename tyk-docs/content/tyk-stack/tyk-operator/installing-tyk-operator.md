@@ -56,7 +56,8 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 Since Tyk Operator supports Kubernetes v1.19+, the minimum cert-manager version you can use is v1.8. 
 If you run into the cert-manager related errors, please ensure that the desired version of Kubernetes version works with the chosen version of cert-manager by checking [supported releases page](https://cert-manager.io/docs/installation/supported-releases/) and [cert-manager documentation](https://cert-manager.io/docs/installation/supported-releases/).
 
-Please wait for the cert-manager to become available.
+Please wait for the cert-manager to become available before continuing with the next step.
+
 
 ### Step 3: Configuring Tyk Operator
 
@@ -108,7 +109,7 @@ kubectl get secret/tyk-operator-conf -n tyk-operator-system -o json | jq '.data'
 If you use Helm Chart to deploy Tyk Open Source, you can obtain the values for `TYK_AUTH` and `TYK_ORG` from Helm Chart values.yaml:
 
 - `TYK_AUTH` corresponds to the value of the `secrets.APISecret`.
-- TYK_ORG corresponds to the value of the secrets.OrgID.
+- `TYK_ORG` corresponds to the value of the `secrets.OrgID`.
 
 ##### Tyk Self Managed/ Hybrid
 
@@ -147,7 +148,7 @@ Here are the configurations you can use:
 | Key | Example Value | Description |
 |:-----|:-------------|:------------|
 | `WATCH_NAMESPACE` | `foo,bar` | Comma separated list of namespaces for Operator to operate on. The default is to all namespaces if not specified.|
-| `WATCH_INGRESS_CLASS` | "customclass" | Define the ingress class Tyk Operator to watch for. Default is `tyk`|
+| `WATCH_INGRESS_CLASS` | `customclass` | Define the ingress class Tyk Operator to watch for. Default is `tyk`|
 | `TYK_HTTPS_INGRESS_PORT` | `8443` | Define the ListenPort for HTTPS ingress. Default is `8443`.|
 | `TYK_HTTP_INGRESS_PORT` | `8080` | Define the ListenPort for HTTP ingress. Default is `8080`.|
 
@@ -188,7 +189,7 @@ helm install tyk-operator tyk-helm/tyk-operator -n tyk-operator-system
 
 #### From Tyk Operator repository
 
-You can install CRDs and Tyk Operator by checking out tyk-operator repository.
+You can install CRDs and Tyk Operator by checking out [tyk-operator](https://github.com/TykTechnologies/tyk-operator) repository.
 
 Run the following command to install the CRDs:
 
@@ -228,7 +229,7 @@ helm upgrade -n tyk-operator-system tyk-operator tyk-helm/tyk-operator  --wait
 
 #### From Tyk Operator repository
 
-You can install CRDs and Tyk Operator by checking out tyk-operator repository. If there is a specific version you want to upgrade to, you can checkout the tag by running `git checkout tags/{.ReleaseTag}`.
+You can install CRDs and Tyk Operator by checking out [tyk-operator](https://github.com/TykTechnologies/tyk-operator) repository. If there is a specific version you want to upgrade to, you can checkout the tag by running `git checkout tags/{.ReleaseTag}`.
 
 To upgrade CRDs, run the following command:
 

@@ -14,9 +14,9 @@ menu:
 
 Creating an API takes the same approach whether you are using Tyk Open Source or Self Managed. First, specify the details of your API using the [ApiDefinition CRD](https://github.com/TykTechnologies/tyk-operator/blob/master/docs/api_definitions.md), then deploy it to create corresponding Kubernetes resource. Tyk Operator will take control of the CRD and create the actual API in the Tyk data plane.
 
-Step 1: Create an ApiDefinition resource in YAML format
+#### Step 1: Create an ApiDefinition resource in YAML format
 
-Create a file called httpbin.yaml, then add the following:
+Create a file called `httpbin.yaml`, then add the following:
 
 ```bash
 apiVersion: tyk.tyk.io/v1alpha1
@@ -34,11 +34,11 @@ spec:
    strip_listen_path: true
 ```
 
-You can also use other sample files from [our repository](https://github.com/TykTechnologies/tyk-operator/tree/master/config/samples).
+You can also use other sample files from `our repository`.
 
-Step 2: Deploy the ApiDefinition resource
+#### Step 2: Deploy the ApiDefinition resource
 
-We are going to create an ApiDefinition described in the [httpbin.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/config/samples/httpbin.yaml) file, by running the  following command:
+We are going to create an ApiDefinition from the [httpbin.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/config/samples/httpbin.yaml) file, by running the  following command:
 
 ```bash
 kubectl apply -f httpbin.yaml
@@ -99,7 +99,7 @@ You can go to the [API Definitions](https://github.com/TykTechnologies/tyk-opera
 ### Configure Kubernetes service as an upstream target
 
 Tyk Gateway deployed in your Kubernetes cluster (Open source, Self managed, or Hybrid) can easily access other Kubernetes services as an upstream proxy target.
-In the ApiDefintion manifest, set the `proxy.target_url` as a Kubernetes Service following [DNS for Services and Pods guideline](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/), so that the requests will be proxied to your service.
+In the ApiDefinition manifest, set the `proxy.target_url` as a Kubernetes Service following [DNS for Services and Pods guideline](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/), so that the requests will be proxied to your service.
 In general, Kubernetes Services have a `<service-name>.<namespace-name>`.svc.cluster.local DNS entry once they are created.
 For example, if you have a service called `httpbin` in `default` namespace, you can contact `httpbin` service with `httpbin.default.svc` DNS record in the cluster, instead of IP addresses.
 Please visit the official [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more details.

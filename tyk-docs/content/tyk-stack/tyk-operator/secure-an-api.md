@@ -56,9 +56,11 @@ spec:
 You can link this Security Policy to any APIs you have defined in `access_rights_array`. In this example, the security policy is applied to `httpbin` API in `default` namespace.
 
 #### Step 2: Deploy the SecurityPolicy resource
-You can do so either by applying sample manifests defined in our repository, for example:
+You can do so either by applying sample manifests defined in [our repository](https://github.com/TykTechnologies/tyk-operator/tree/master/docs/policies), for example:
 
-`kubectl apply -f docs/policies/ratelimit.yaml`
+```bash
+kubectl apply -f docs/policies/ratelimit.yaml
+```
 
 Or, if you don’t have the manifest with you, you can run the following command:
 
@@ -158,8 +160,8 @@ Access lists for API and versions:
 
 Usage Quota fields:
 
-- quota_max: The maximum number of allowed requests over a quota period.
-- quota_renewal_rate: Time, in seconds, after which quota will be renewed.
+- `quota_max`: The maximum number of allowed requests over a quota period.
+- `quota_renewal_rate`: Time, in seconds, after which quota will be renewed.
 
 Rate limiting fields:
 
