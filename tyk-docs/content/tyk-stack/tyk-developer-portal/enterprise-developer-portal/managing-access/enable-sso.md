@@ -69,11 +69,10 @@ The full reference for the configuration file is in [the TIB section of the docu
 
 3. Create a TIB profile to work on your identity provider. Navigate to the [TIB configuration section](/docs/advanced-configuration/integrate/sso/) for step-by-step instructions.
 4. Once TIB profile is created, you need to change the following parameter:
-   **OrgID** must be 0 for being accepted as a provider-admin or super-admin.
-   **IdentityHandlerConfig.DashboardCredential** is `PortalAPISecret` in the configuration file of the Developer portal.
-
-**ReturnURL** should be "http://{portal host}:{portal port}/sso".
-**ProviderConfig.FailureRedirect** should be "http://{portal host}:{portal port}/?fail=true".
+- **OrgID** must be 0 for being accepted as a provider-admin or super-admin.
+- **IdentityHandlerConfig.DashboardCredential** is `PortalAPISecret` in the configuration file of the Developer portal.
+- **ReturnURL** should be "http://{portal host}:{portal port}/sso".
+- **ProviderConfig.FailureRedirect** should be "http://{portal host}:{portal port}/?fail=true".
 5. Create a login page for admin users. We don't supply a login page for single sign-on out of the box so you need to create one.
    Here is an example of such page:
 ```html
@@ -92,4 +91,4 @@ The full reference for the configuration file is in [the TIB section of the docu
 </html>
 ```
 
-6. Now you should be able to login with your identity provider.
+5. Now you should be able to login with your identity provider.

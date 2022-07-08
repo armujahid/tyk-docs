@@ -18,7 +18,7 @@ If you are interested in getting access, contact us at [support@tyk.io](<mailto:
 
 ## Introduction
 
-The Enterprise Developer portal enables admin users to customise the navigation menu that appears in the top navigational bar of the live portal. An admin user can create and manage menu items without any code from the admin dashboard of the Developer portal.
+The Enterprise Developer portal enables admin users to customise the navigation menu that appears on the top navigational bar of the live portal. An admin user can create and manage menu items without any code from the admin dashboard of the Developer portal.
 {{< img src="img/dashboard/portal-management/enterprise-portal/top-nav-menu.png" alt="The navigation menu" >}}
 
 Each menu item may:
