@@ -12,7 +12,7 @@ weight: 4
 {{< note success >}}
 **Tyk Enterprise Developer Portal**
 
-If you are interested in getting access contact us at [support@tyk.io](<mailto:support@tyk.io?subject=Tyk Enterprise Portal Beta>)
+If you are interested in getting access, contact us at [support@tyk.io](<mailto:support@tyk.io?subject=Tyk Enterprise Portal Beta>)
 
 {{< /note >}}
 
@@ -22,13 +22,13 @@ In this section, you’ll learn how to enable single sign-on for admin users wit
 
 ## Prerequisites
 
-- A Tyk Enterprise portal installation
+- A Tyk Enterprise portal installation.
 
 ## Step by step instructions
 
 1. [Install Tyk Identity Broker](/docs/tyk-stack/tyk-identity-broker/getting-started/).
-2. Create TIB config file to work with the Developer portal:
-```json
+2. Create TIB configuration file to work with the Developer portal:
+```.json
 {
 "Secret":"test-secret",
 "HttpServerOptions":{
@@ -62,19 +62,20 @@ In this section, you’ll learn how to enable single sign-on for admin users wit
 }
 ```
 Setting reference:
-**TykAPISettings.DashboardConfig.Endpoint**: is the Developr portal url. Pay attention if any of the elements (TIB or Portal) is running on containers.
-**TykAPISettings.DashboardConfig.Port**: is the Developer portal port
-**TykAPISettings.DashboardConfig.AdminSecret**: is `PortalAPISecret` in the config file of the Developer portal.
-The full reference for the config file is in [the TIB section of the documentation](/docs/tyk-configuration-reference/tyk-identity-broker-configuration).
+**TykAPISettings.DashboardConfig.Endpoint** is the Developer portal url. Pay attention if any of the elements (TIB or Portal) is running on containers.
+**TykAPISettings.DashboardConfig.Port** is the Developer portal port.
+**TykAPISettings.DashboardConfig.AdminSecret** is `PortalAPISecret` in the configuration file of the Developer portal.
+The full reference for the configuration file is in [the TIB section of the documentation](/docs/tyk-configuration-reference/tyk-identity-broker-configuration).
 
-3. Create a TIB profile to work your identity provider. Navigate to the [TIB configuration section](/docs/advanced-configuration/integrate/sso/) for step-by-step instructions.
+3. Create a TIB profile to work on your identity provider. Navigate to the [TIB configuration section](/docs/advanced-configuration/integrate/sso/) for step-by-step instructions.
 4. Once TIB profile is created, you need to change the following parameter:
-**OrgID**: must be 0 for be accepted as provider-admin or super-admin;
-**IdentityHandlerConfig.DashboardCredential**:  is `PortalAPISecret` in the config file of the Developer portal;
-**ReturnURL**: should be "http://{portal host}:{portal port}/sso";
-**ProviderConfig.FailureRedirect**: should be "http://{portal host}:{portal port}/?fail=true";
+   **OrgID** must be 0 for being accepted as a provider-admin or super-admin.
+   **IdentityHandlerConfig.DashboardCredential** is `PortalAPISecret` in the configuration file of the Developer portal.
+
+**ReturnURL** should be "http://{portal host}:{portal port}/sso".
+**ProviderConfig.FailureRedirect** should be "http://{portal host}:{portal port}/?fail=true".
 5. Create a login page for admin users. We don't supply a login page for single sign-on out of the box so you need to create one.
-Here is an example of such page:
+   Here is an example of such page:
 ```html
 <html>
     <head>
@@ -89,6 +90,6 @@ Here is an example of such page:
       </form>
     </body>
 </html>
-
 ```
-7. Now you should be able to login with your identity provider.
+
+6. Now you should be able to login with your identity provider.
