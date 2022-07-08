@@ -118,7 +118,8 @@ div class="container">
     </div>
 ….
 ```
-There are four code references in the above snippet. In this example, we have a header, some text and then a button that act as a link. Let's see what each one is and how it correlates with the UI.
+
+In the above snippet, there are four code references. In this example, we have a header, some text and then a button that act as a link. Let's see what each one is and how it correlates with the UI.
 
 1. `{{ .page.Title }}`. This is the `Title` input in the form UI (Screenshot #1)
 1. `{{ .blocks.HeaderDescription.Content }}`. This is the `HeaderDescription` input in the form UI (Screenshot #2)
