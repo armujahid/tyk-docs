@@ -13,14 +13,6 @@ weight: 1
 
 ### Introduction
 
-Tyk has always had a proprietary specification for defining APIs. Tyk now also supports defining APIs using the [Open API Specification](https://swagger.io/specification/) (OAS) which can offer significant time and complexity savings. This is a beta capability.
-
-As we extend our OAS support, we would very much like your feedback on how we can extend and update  to best meet your needs: <link to appropriate topic in community> .
-
-This capability is available in both the open source and paid versions of Tyk.
-
-### What is OAS and what value does it have for me as a user?
-
 OAS is a ‘vendor neutral’ specification for APIs. The great thing about this is that it means there are already a large number of tools that will help you design and create APIs in OAS, or even generate them from your source code. Tyk supports defining APIs in OAS, making it even easier to get your API up and running. 
 
 Since one API Definition document now effectively describes all parts of your API flow a lot of the complexity of managing multiple documents and keeping them in sync goes away. This means that highly automated deployment patterns using CI/CD and GitOps just became a lot easier to implement.
