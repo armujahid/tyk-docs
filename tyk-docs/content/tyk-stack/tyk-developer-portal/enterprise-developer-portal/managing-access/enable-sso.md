@@ -91,4 +91,4 @@ The full reference for the configuration file is in [the TIB section of the docu
 </html>
 ```
 
-5. Now you should be able to login with your identity provider.
+6. Now you should be able to login with your identity provider.
