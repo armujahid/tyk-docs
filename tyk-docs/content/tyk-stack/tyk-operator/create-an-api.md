@@ -35,7 +35,7 @@ spec:
 You can also use other sample files from `our repository`.
 
 #### Step 2: Deploy the ApiDefinition resource
-We are going to create an ApiDefinition from the [httpbin.yaml](https://github.com/TykTechnologies/tyk-operator/blob/master/config/samples/httpbin.yaml) file, by running the  following command:
+We are going to create an ApiDefinition from the httpbin.yaml file, by running the  following command:
 
 ```bash
 kubectl apply -f httpbin.yaml

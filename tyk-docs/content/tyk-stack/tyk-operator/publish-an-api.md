@@ -50,7 +50,7 @@ spec:
 EOF
 ```
 
-The above command will create a basic security policy and attribute it to the `httpbin` httpbin API that was previously created.
+The above command will create a basic security policy and attribute it to the `httpbin` API that was previously created.
 
 #### Step 2: Creating an API description
 
