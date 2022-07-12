@@ -106,7 +106,13 @@ a minimum of 2 to remedy this issue.
 {{< tab_end >}}
 {{< tab_start "SQL" >}}
 <br />
-**SQL TEXT TO GO HERE**
+#### Postgres
+```bash
+helm install tyk-postgres bitnami/postgresql --set "auth.database=tyk_analytics" -n tyk
+```
+
+Follow the notes from the installation output to get connection details and password. The DNS name of your Postgres service as set by Bitnami is `tyk-postgres-postgresql.tyk.svc.cluster.local`.
+You can update connection details in `values.yaml` file under `postgres`.
 {{< tab_end >}}
 {{< tabs_end >}}
 
