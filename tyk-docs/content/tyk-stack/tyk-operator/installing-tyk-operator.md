@@ -42,9 +42,9 @@ If you are using the Self Managed edition, you need to make sure your Tyk Gatewa
 
 For Self Managed / Hybrid edition, you may want to create a user account to be used by Tyk Operator. It should have write access to the resources it is going to manage, e.g. APIs, Certificates, Policies, and Portal.
 
-It is the recommended practice to turn off write access for other users for the above resources. See [Using Tyk Operator to enable GitOps with Tyk]({{<< ref "/content/getting-started/key-concepts/gitops-with-tyk.md" >}}) about maintaining a single source of truth for your API configurations.
-
-
+It is the recommended practice to turn off write access for other users for
+the above resources. See [Using Tyk Operator to enable GitOps with Tyk]({{< ref "/content/getting-started/key-concepts/gitops-with-tyk.md" >}}) about
+maintaining a single source of truth for your API configurations.
 ### Step 2: Installing cert-manager
 
 Tyk Operator uses the cert-manager to provision certificates for the webhook server. If you don't have cert-manager installed, you can follow this command to install it: 
