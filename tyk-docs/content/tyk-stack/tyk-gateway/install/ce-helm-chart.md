@@ -20,7 +20,7 @@ It will install Tyk gateway in your Kubernetes cluster where you can add and man
 The following are required for a Tyk OSS installation:
  - Redis   - required for all the Tyk installations and must be installed in the cluster or reachable from inside K8s.
              You can find instructions for a simple Redis installation bellow.
- - MongoDB - Required only if you chose to use the MongoDB Tyk pump with your Tyk OSS installation. Same goes with any
+ - MongoDB/SQL - Required only if you chose to use the MongoDB/SQL Tyk pump with your Tyk OSS installation. Same goes with any
              [other pump](/analytics-and-reporting/other-data-stores/) you choose to use.
              
 ## Interactive tutorial
@@ -120,6 +120,23 @@ Please note that this video shows the use of GH repo, since it recorded before t
 it's very similar to the above commands.
 
 {{< youtube mkyl38sBAF0 >}}
+
+#### Pump Installation
+By default pump installation is disabled. You can enable it by setting `pump.enabled` to `true` in `values.yaml` file.
+Alternatively, you can use `--set pump.enabled=true` while doing helm install.
+
+#### Quick Pump configuration(Supported from tyk helm v0.10.0)
+*1. Mongo Pump*
+
+To configure mongo pump, do following changings in `values.yaml` file:
+1. Set `backend` to `mongo`.
+2. Set connection string in `mongo.mongoURL`.
+
+*2. Postgres Pump*
+
+To configure postgres pump, do following changings in `values.yaml` file:
+1. Set `backend` to `postgres`.
+2. Set connection string parameters in `postgres` section.
 
 #### Optional - Using TLS
 You can turn on the TLS option under the gateway section in your local `values.yaml` file which will make your Gateway 
