@@ -2,7 +2,7 @@
 title: "Create an OAS API"
 date: 2022-07-08
 tags: ["Tyk Tutorials", "Getting Started", "First API", "Tyk Cloud", "Tyk Self-Managed", "Tyk Open Source"]
-description: "Creating a first API using Tyk"
+description: "Creating an OAS API using Tyk"
 menu:
   main:
     parent: "Using OAS API Definitions"
@@ -22,11 +22,11 @@ This section will walk you through creating an OAS API. We will cover the follow
 
 ### Tutorial: Create an OAS API with the Tyk Gateway API
 
-#### Step 1: Make sure you know your API secret
+#### Make sure you know your API secret
 
 Your Tyk Gateway API secret is stored in your `tyk.conf` file, the property is called `secret`. You will need to use this as a header called `x-tyk-authorization` to make calls to the Gateway API.
 
-#### Step 2: Create an API
+#### Create an API
 
 To create the API, send a Tyk OAS API Definition [link to glossary] to the `apis` endpoint (http://{your-tyk-host}:{port}/tyk/apis/oas), which will return the status and version of your Tyk Gateway. Change the `x-tyk-authorization` value and curl the domain name and port to be the correct values for your environment.
 
@@ -228,7 +228,7 @@ curl --location --request POST 'http://{your-tyk-host}:{port}/tyk/apis/oas' \
 }'
 ```
 
-#### Step 3: Check request response
+#### Check request response
 
 If the command succeeds, you will see the following response, where key contains the newly created API ID:
 
@@ -242,7 +242,7 @@ If the command succeeds, you will see the following response, where key contains
 
 What you have done is send a Tyk OAS API definition to the Tyk `/apis/oas` endpoint. Tyk OAS API definitions are discussed in detail in the OAS API section. These objects encapsulate all of the settings for an OAS API within your Tyk Gateway.
 
-#### Step 4: Restart or hot reload
+#### Restart or hot reload
 
 Once you have created your API, you will need to either restart the Tyk Gateway, or issue a hot reload command with the following curl command:
 
@@ -252,7 +252,7 @@ curl -H "x-tyk-authorization: {your-secret}" -s http://{your-tyk-host}:{port}/ty
 
 ### Tutorial: Create an OAS API in file-based mode
 
-#### Step 1: Save the Tyk OAS API definition file
+#### Save the Tyk OAS API definition file
 
 Create a file called `api1-oas.json` and place it in the `/apps` folder of your Tyk Gateway installation (usually in `/var/tyk-gateway`), then add the following:
 
@@ -440,7 +440,7 @@ Create a file called `api1-oas.json` and place it in the `/apps` folder of your 
   }
 }
 ```
-#### Step 2: Restart or hot-reload
+#### Restart or hot-reload
 
 Once you have created your API, you will need to either restart the Tyk Gateway, or issue a hot reload command with the following curl command:
 
@@ -454,15 +454,15 @@ Your API is now ready to use via the Gateway.
 
 ### Using the Tyk Dashboard
 
-#### Step 1: Select “APIs” from the “System Management” section
+#### Select “APIs” from the “System Management” section
 
 Need screenshot
 
-#### Step 2: Click Add new API
+#### Click Add new API
 
 Need screenshot
 
-#### Step 3: Set up the Base Configuration for your API
+#### Set up the Base Configuration for your API
 
 1. From the **Overview** section, add your **API Name** and your **API Type** (We will use OAS HTTP for this tutorial, which is for now in early access.
 2. From the **Details** section, add your **Target URL**. This will set the upstream target that hosts the service you want to proxy to. For this tutorial you can use http://petstore.swagger.io/v2.
@@ -470,7 +470,7 @@ Need screenshot
 
 Need screenshot
 
-#### Step 4: Save the API
+#### Save the API
 
 From the **advanced configuration** screen [LINK TO NEW API DESIGNER CONCEPT PAGE], add the minimum needed required fields **Gateway Status** and **Access**, and then click **Save API**.
 
@@ -486,7 +486,7 @@ To see the URL given to your API, check the Info section displayed at the top of
 
 Need screenshot
 
-#### Step 5: Set up the Authentication for your API
+#### Set up the Authentication for your API
 
 From the API page:
 
@@ -498,7 +498,7 @@ From the API page:
 6. Note that the header default value will be **Authorization**
 7. Save your API
 
-#### Step 6: Test your API
+#### Test your API
 
 From the Settings tab of your API, copy the API URL and request the API without providing an authorization token:
 
@@ -518,7 +518,7 @@ Note that the Gateway will respond with the following error message:
 
 It is possible to create APIs using your Tyk Dashboard’s REST API. You will need an API key for your organisation and one command to create the API and make it live.
 
-#### Step 1: Obtain your Dashboard API key & Dashboard URL
+#### Obtain your Dashboard API key & Dashboard URL
 
 From the Tyk Dashboard, select **Users** from the **System Management** section. Click **Edit** for your user, then scroll to the bottom of the page. Your API Key is the first entry:
 
@@ -542,7 +542,7 @@ export GATEWAY_URL=http://localhost:8080
 export GATEWAY_URL=https://YOUR_SUBDOMAIN.cloud.tyk.io
 ```
 
-#### Step 2: Query the /api/apis endpoint to see what APIs are loaded
+#### Query the /api/apis endpoint to see what APIs are loaded
 
 | Property     | Description |
 |--------------|-------------|
@@ -562,7 +562,7 @@ curl -H "Authorization: ${DASH_KEY}" ${DASH_URL}/apis
 For a fresh install, you will see that no APIs currently exist
 {{< /note >}}
 
-#### Step 3: Create your first API
+#### Create your first API
 
 This example Tyk OAS API definition configures the Tyk Gateway to forward requests to the https://petstore.swagger.io/v2 request/response service.
 
@@ -593,7 +593,7 @@ You'll see the following response:
 }
 ```
 
-#### Step 4: Test your new API
+#### Test your new API
 
 Create a new petstore pet
 
@@ -628,14 +628,14 @@ What you have done is send a request to the Tyk Gateway on the listen path `/pet
 
 The Gateway stripped the listen path, and reverse proxied the request to https://petstore.swagger.io/v2
 
-#### Step 5: Protect your API
+#### Protect your API
 
 You could specify the authentication method to use with your API when you first create it. You didn’t do that with our example above which gives us the opportunity to show how updating an API works via the Tyk Dashboard API. You could also edit the API directly on the Dashboard.
 
 Request the API definition you created before and store the output to a file locally.
 
 ```
-curl --location --request GET '${DASH_URL}/apis/oas/{API_ID}' \
+curl --location --request GET '${DASH_URL}/apis/oas/{api-id}' \
 --header 'Authorization: ${DASH_KEY}' | python -mjson.tool > api.petstore.json
 ```
 You can now edit the `api.petstore.json` file you created, and update the Tyk OAS API definition to enable authentication. See [Authentication]({{< ref "/content/getting-started/key-concepts/authentication.md" >}}) for more details.
@@ -686,14 +686,14 @@ Then send a PUT request back to your Tyk Dashboard to update its configuration.
 
 | Property     | Description            |
 |--------------|------------------------|
-| Resource URL | /tyk/apis/oas/{API_ID} |
+| Resource URL | /tyk/apis/oas/{api-id} |
 | Method       | PUT                    |
 | Type         | None                   |
 | Body         | Tyk OAS API Definition |
-| Param        | Path Param: {API_ID}   |
+| Param        | Path Param: {api-id}   |
 
 ```
-curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/oas/${API_ID} -X PUT -d "@api.petstore.json"
+curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/oas/${api-id} -X PUT -d "@api.petstore.json"
 ```
 You will get the following response:
 
@@ -701,7 +701,7 @@ You will get the following response:
 curl -H "Authorization: ${DASH_KEY}" -H "Content-Type: application/json" ${DASH_URL}/apis/oas/${API_ID} -X PUT -d "@api.petstore.json"
 ```
 
-#### Step 6 Test your protected API
+#### Test your protected API
 
 1. Send a request without any credentials
 
