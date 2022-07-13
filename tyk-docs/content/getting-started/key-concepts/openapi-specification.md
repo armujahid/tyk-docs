@@ -16,5 +16,5 @@ Tyk has always had a proprietary specification for defining APIs. Tyk now also s
 
 As we extend our OAS support, we would very much like your feedback on how we can extend and update  to best meet your needs: <link to appropriate topic in community> .
 
-This capability is available in both the open source and paid versions of Tyk. See our [High Level Concepts]({{< ref "/content/getting-started/key-concepts/high-level-concepts.md" >}}) for more details.
+This capability is available in both the open source and paid versions of Tyk. See our [High Level Concepts]({{< ref "/content/getting-started/key-concepts/high-level-concepts.md" >}}) for more details. We also have a [glossary of terms]({{< ref "/content/getting-started/using-oas-definitions/oas-glossary.md" >}}).
 
