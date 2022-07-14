@@ -456,19 +456,27 @@ Your API is now ready to use via the Gateway.
 
 #### Select “APIs” from the “System Management” section
 
-Need screenshot
 
-#### Click Add new API
+{{< img src="/img/oas/api-menu.png" alt="Add new API" >}}
 
-Need screenshot
+
+#### Add new API
+
+If you have a fresh Tyk installation with no other APIs added, click **Design new API**:
+
+{{< img src="/img/oas/first-api.png" alt="First API screen" >}}
+
+If you already have APIs in your Tyk installation, click **Add new API**:
+
+{{< img src="/img/oas/add-new-api.png" alt="Add new API" >}}
 
 #### Set up the Base Configuration for your API
 
 1. From the **Overview** section, add your **API Name** and your **API Type** (We will use OAS HTTP for this tutorial, which is for now in early access.
-2. From the **Details** section, add your **Target URL**. This will set the upstream target that hosts the service you want to proxy to. For this tutorial you can use http://petstore.swagger.io/v2.
+2. From the **Details** section, add your **Target URL**. This will set the upstream target that hosts the service you want to proxy to. For this tutorial you can use http://petstore.swagger.io/v2/.
 3. Click **Configure API** when you have finished.
 
-Need screenshot
+{{< img src="/img/oas/api-overview.png" alt="API Base Configuration" >}}
 
 #### Save the API
 
