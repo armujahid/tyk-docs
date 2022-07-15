@@ -478,11 +478,14 @@ If you already have APIs in your Tyk installation, click **Add new API**:
 
 {{< img src="/img/oas/api-overview.png" alt="API Base Configuration" >}}
 
-#### Save the API
+#### Set the Gateway Status and Access
 
-From the **advanced configuration** screen [LINK TO NEW API DESIGNER CONCEPT PAGE], add the minimum needed required fields **Gateway Status** and **Access**, and then click **Save API**.
+- You need to set the **Gateway status** to **Active**
+- You need to set the **Access** setting to **Internal** (within your installation only) or **External** (available to external sources)
 
-Need screenshot
+{{< img src="/img/oas/status.png" alt="Set API Status" >}}
+
+Click **Save Changes**.
 
 Once saved, you will be redirected to the newly created API screen.
 
@@ -492,7 +495,8 @@ Once saved, you will be redirected to the newly created API screen.
 To see the URL given to your API, check the Info section displayed at the top of the page:
 {{< /note >}}
 
-Need screenshot
+{{< img src="/img/oas/api-url.png" alt="Set API Status" >}}
+
 
 #### Set up the Authentication for your API
 
