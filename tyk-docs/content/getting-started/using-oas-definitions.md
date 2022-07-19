@@ -9,6 +9,8 @@ menu:
 weight: 7
 ---
 
+{{< toc >}}
+
 ### Introduction
 
 This section is for those using our OAS API definitions and covers the following:
@@ -20,3 +22,9 @@ This section is for those using our OAS API definitions and covers the following
 - [Update an API with OAS]({{< ref "/content/getting-started/using-oas-definitions/update-api-with-oas.md" >}})
 - [Versioning an API]({{< ref "/content/getting-started/using-oas-definitions/versioning-an-oas-api.md" >}})
 
+### Schemas
+
+We have a schema that will allow you to use a 3rd party editor when creating a Tyk OAS API. The schema is available from the following [GitHub repo](https://github.com/TykTechnologies/tyk-schemas/blob/main/JSON/draft-04/schema_apidefoas.json).
+
+### Visual Studio Code Extension
+We have published a Tyk VS Code extension that provides Tyk API schema support (not just OAS) in the [marketplace](https://marketplace.visualstudio.com/items?itemName=TykTechnologiesLimited.tyk-schemas). You can use this to install the [OAS API](https://github.com/TykTechnologies/tyk-schemas/blob/main/JSON/draft-04/schema_apidefoas.json) schema and develop your OAS API with Visual Studio Code.
