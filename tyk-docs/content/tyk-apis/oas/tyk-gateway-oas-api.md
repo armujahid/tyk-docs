@@ -6,7 +6,7 @@ description: ""
 menu:
   main:
     parent: "Open API Specification"
-weight: 3
+weight: 1
 url: "/tyk-gateway-oas-api"
 type: "swagger-ui"
 swagger: "/docs/others/oas-gateway.yml"
